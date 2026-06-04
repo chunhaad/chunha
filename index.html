@@ -1371,14 +1371,14 @@
             <button class="filter-btn" data-filter="sheet">시트지</button>
         </div>
 
-        <div class="portfolio-grid">
-            <div class="portfolio-item" data-category="led">
-                <img src="led-sign.png" alt="LED 간판" loading="lazy">
-                <div class="portfolio-overlay">
-                    <h3>LED 간판</h3>
-                    <p>고급 LED 채널간판 시공 사례</p>
-                </div>
-            </div>
+        <div class="portfolio-item" data-category="led"
+     onclick="document.querySelector('[data-filter=&quot;led&quot;]').click();">
+    <img src="led-sign.png" alt="LED 간판" loading="lazy">
+    <div class="portfolio-overlay">
+        <h3>LED 간판</h3>
+        <p>고급 LED 채널간판 시공 사례</p>
+    </div>
+</div>
 
             <div class="portfolio-item" data-category="wall">
                 <img src="images/work2.jpg" alt="건물간판 시공 사례" loading="lazy">
