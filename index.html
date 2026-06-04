@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OO간판은 LED 채널간판, 현수막, 실사출력, 건물 외벽 사인 등 옥외광고 전문기업입니다. 기획·디자인·제작·시공까지 원스톱 서비스를 제공합니다.">
+    <meta name="keywords" content="간판, 옥외광고, LED간판, 채널간판, 현수막, 실사출력, 건물간판, 간판제작, 간판시공">
+    <meta name="author" content="OO간판">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="OO간판 | 프리미엄 옥외광고 전문업체">
+    <meta property="og:description" content="기획·디자인·제작·시공까지 원스톱 서비스">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://example.com/">
+    <title>OO간판 | 프리미엄 옥외광고 전문업체 - LED간판, 채널간판 시공</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #f97316;
+            --accent-light: #fb923c;
+            --text-light: #f8fafc;
+            --text-dark: #1e293b;
+            --border: #e2e8f0;
+            --success: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(249,115,22,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="none"/><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
+            opacity: 0.3;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            font-weight: 700;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+            box-shadow: none;
+        }
+
+        .btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 100px 8%;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 12px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .feature-text p {
+            font-size: 12px;
+            color: #999;
+            margin: 0;
+        }
+
+        .about-image {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        #service {
+            background: white;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.2);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            gap: 12px;
+        }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        #portfolio {
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            group: portfolio;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .portfolio-overlay p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        #process {
+            background: white;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out both;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+        .step:nth-child(5) { animation-delay: 0.5s; }
+        .step:nth-child(6) { animation-delay: 0.6s; }
+
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .step::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            border: 3px solid white;
+        }
+
+        .process-line {
+            position: absolute;
+            top: 20px;
+            left: -50%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            z-index: -1;
+        }
+
+        /* ===== STATISTICS SECTION ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 28px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-details p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            max-width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .contact-form button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideInRight 0.6s ease-out, float 3s ease-in-out infinite;
+        }
+
+        .floating-btn:nth-child(1) { animation-delay: 0s, 0s; }
+        .floating-btn:nth-child(2) { animation-delay: 0.1s, 0.2s; }
+
+        .floating-btn.phone {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .floating-btn.kakao {
+            background: linear-gradient(135deg, #FFE812 0%, #FFC300 100%);
+            color: #3c1e1e;
+            font-weight: bold;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-btn.phone:hover {
+            animation: glow 0.6s ease-in-out infinite;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 50px 8%;
+            border-top: 2px solid var(--accent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            nav {
+                display: none;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--primary);
+                padding: 20px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                padding: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                height: auto;
+                padding: 60px 20px;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .step {
+                padding: 25px 15px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            footer {
+                padding: 40px 5%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 12px 3%;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 40px 15px;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 40px 3%;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-filters {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .step {
+                padding: 20px 10px;
+                font-size: 12px;
+            }
+
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loading {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">OO간판</div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        <nav id="mainNav">
+            <a href="#about">회사소개</a>
+            <a href="#service">서비스</a>
+            <a href="#portfolio">시공사례</a>
+            <a href="#process">진행절차</a>
+            <a href="#contact">문의하기</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="highlight">눈에 띄는 간판</span><br>
+                성공하는 비즈니스의 시작
+            </h1>
+            <p>기획·디자인·제작·시공까지 원스톱 프리미엄 서비스</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">💬 무료 견적 문의</a>
+                <a href="#portfolio" class="btn secondary">📸 시공 사례 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <h2 class="section-title">회사소개</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>프리미엄 옥외광고 전문기업</h3>
+                <p>OO간판은 15년 이상의 경험으로 LED 채널간판, 현수막, 실사출력, 건물 외벽 사인 및 각종 광고물 제작을 전문으로 하는 옥외광고 전문기업입니다.</p>
+                <p>고객의 브랜드 가치를 최대한 표현하고, 최고 품질의 시공으로 신뢰받는 파트너가 되기 위해 끊임없이 노력하고 있습니다.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <div class="feature-text">
+                            <h4>업계 최고의 경험</h4>
+                            <p>15년 이상의 노하우</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⭐</div>
+                        <div class="feature-text">
+                            <h4>최고 품질 보증</h4>
+                            <p>A/S 만족도 99%</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚀</div>
+                        <div class="feature-text">
+                            <h4>신속한 시공</h4>
+                            <p>평균 7일 완공</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-text">
+                            <h4>합리적 가격</h4>
+                            <p>시장 대비 10% 절감</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="images/about-image.jpg" alt="OO간판 시공 사례" loading="lazy">
+            </div>
+        </div>
+
+        <!-- STATISTICS -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">완료된 프로젝트</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">고객 만족도</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">경력 년수</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">고객 지원</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="service" class="section">
+        <h2 class="section-title">주요 서비스</h2>
+        <p class="section-subtitle">최고 품질의 옥외광고 서비스를 제공합니다</p>
+        
+        <div class="services">
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>LED 채널간판</h3>
+                <p>고급스러운 브랜드 이미지를 제공하며, 에너지 효율적이고 밤낮 구분 없이 뛰어난 가시성을 자랑합니다. 맞춤형 디자인으로 브랜드 개성을 표현합니다.</p>
+                <a href="#contact" class="card-link">상담받기 →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>건물 외벽 간판</h3>
+                <p>가시성과 홍보 효과를 극대화하며, 건물의 외관을 해치지 않는 세련된 디자인으로 도시경관에 어울립니다. 안정성과 내구성을 보장합니다.</p>
+                <a href="#contact" class="card-link">상담받기 →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>현수막·배너 제작</h3>
+                <p>행사 및 홍보용 맞춤 제작으로 높은 광고 효과를 제공합니다. 빠른 제작 속도로 급작스러운 행사에도 즉시 대응 가능합니다.</p>
+                <a href="#contact" class="card-link">상담받기 →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📸</div>
+                <h3>실사출력</h3>
+                <p>최신 고해상도 출력 장비로 선명한 이미지 표현을 보장합니다. 다양한 소재와 크기로 모든 광고 요구를 충족시킵니다.</p>
+                <a href="#contact" class="card-link">상담받기 →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>간판 디자인</h3>
+                <p>전문 디자이너가 브랜드 정체성을 반영한 창의적인 디자인을 제공합니다. 타겟 고객에게 최대한의 어필력을 갖춘 디자인으로 성공을 보장합니다.</p>
+                <a href="#contact" class="card-link">상담받기 →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>A/S 및 유지보수</h3>
+                <p>전문 기술진의 정기적인 점검과 유지보수로 항상 최상의 상태를 유지합니다. 긴급 고장 시 24시간 신속한 대응 서비스를 제공합니다.</p>
+                <a href="#contact" class="card-link">상담받기 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="section">
+        <h2 class="section-title">시공 사례</h2>
+        <p class="section-subtitle">다양한 프로젝트 경험으로 신뢰받고 있습니다</p>
+        
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">모두 보기</button>
+            <button class="filter-btn" data-filter="led">LED 간판</button>
+            <button class="filter-btn" data-filter="wall">외벽 간판</button>
+            <button class="filter-btn" data-filter="banner">현수막</button>
+            <button class="filter-btn" data-filter="printing">실사출력</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-category="led">
+                <img src="images/work1.jpg" alt="LED 채널간판 시공 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>프리미엄 카페</h3>
+                    <p>LED 채널간판</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="wall">
+                <img src="images/work2.jpg" alt="외벽 간판 시공 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>의류매장</h3>
+                    <p>건물 외벽 간판</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="banner">
+                <img src="images/work3.jpg" alt="현수막 시공 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>상품 프로모션</h3>
+                    <p>현수막·배너</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="led">
+                <img src="images/work4.jpg" alt="LED 간판 야경 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>레스토랑</h3>
+                    <p>LED 채널간판</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="printing">
+                <img src="images/work5.jpg" alt="실사출력 시공 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>건설사 옥외광고</h3>
+                    <p>실사출력</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-category="wall">
+                <img src="images/work6.jpg" alt="외벽 간판 시공 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>뷰티샵</h3>
+                    <p>건물 외벽 간판</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="process" class="section">
+        <h2 class="section-title">진행 절차</h2>
+        <p class="section-subtitle">체계적이고 투명한 시공 프로세스</p>
+
+        <div class="process-grid">
+            <div class="step" data-step="1">
+                <p>📞<br>상담 및 견적</p>
+                <div class="process-line"></div>
+            </div>
+            <div class="step" data-step="2">
+                <p>📐<br>현장실측</p>
+                <div class="process-line"></div>
+            </div>
+            <div class="step" data-step="3">
+                <p>🎨<br>디자인 제안</p>
+                <div class="process-line"></div>
+            </div>
+            <div class="step" data-step="4">
+                <p>🔨<br>제작</p>
+                <div class="process-line"></div>
+            </div>
+            <div class="step" data-step="5">
+                <p>🏗️<br>시공</p>
+                <div class="process-line"></div>
+            </div>
+            <div class="step" data-step="6">
+                <p>💪<br>사후관리</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+        <h2 class="section-title">무료 견적 문의</h2>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3 style="margin-bottom: 20px; font-size: 24px;">언제든지 연락주세요</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h4>전화</h4>
+                        <p>010-0000-0000</p>
+                        <p>02-000-0000</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-details">
+                        <h4>이메일</h4>
+                        <p>info@oosignage.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <h4>주소</h4>
+                        <p>서울시 강남구 테헤란로<br>123, 5층</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div class="contact-details">
+                        <h4>영업시간</h4>
+                        <p>평일: 09:00 ~ 18:00<br>토요일: 10:00 ~ 16:00<br>일요일: 휴무</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">업체명</label>
+                    <input type="text" id="company" name="company" placeholder="업체명을 입력하세요">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">관심 서비스</label>
+                    <select id="service" name="service" style="width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.05); color: white; font-family: 'Noto Sans KR', sans-serif;">
+                        <option value="">선택하세요</option>
+                        <option value="led">LED 채널간판</option>
+                        <option value="wall">건물 외벽 간판</option>
+                        <option value="banner">현수막·배너</option>
+                        <option value="printing">실사출력</option>
+                        <option value="design">간판 디자인</option>
+                        <option value="other">기타</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">문의 내용</label>
+                    <textarea id="message" name="message" rows="5" placeholder="문의 내용을 자세히 입력해주세요" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">🚀 무료 견적 문의하기</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>OO간판</h4>
+                <p>프리미엄 옥외광고 전문기업으로서 기획, 디자인, 제작, 시공까지 원스톱 서비스를 제공합니다.</p>
+            </div>
+            <div class="footer-section">
+                <h4>서비스</h4>
+                <p><a href="#service">LED 채널간판</a></p>
+                <p><a href="#service">건물 외벽 간판</a></p>
+                <p><a href="#service">현수막·배너</a></p>
+                <p><a href="#service">실사출력</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>연락처</h4>
+                <p>전화: <a href="tel:010-0000-0000">010-0000-0000</a></p>
+                <p>이메일: <a href="mailto:info@oosignage.com">info@oosignage.com</a></p>
+                <p>주소: 서울시 강남구 테헤란로 123</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 OO간판. All Rights Reserved. | <a href="#" style="color: #888;">개인정보처리방침</a> | <a href="#" style="color: #888;">이용약관</a></p>
+        </div>
+    </footer>
+
+    <!-- FLOATING BUTTONS -->
+    <div class="floating-buttons">
+        <a href="tel:010-0000-0000" class="floating-btn phone" title="전화하기">📞</a>
+        <a href="http://pf.kakao.com/_xnnxjxc" class="floating-btn kakao" title="카톡 상담" target="_blank">💬</a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+
+        // Scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards and other elements
+        document.querySelectorAll('.card, .stat, .about-text, .portfolio-item').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Portfolio filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeInUp 0.6s ease-out';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+
+            // Here you would typically send this data to your server
+            console.log('Form Data:', data);
+
+            // Show success message
+            const submitBtn = contactForm.querySelector('button');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '✓ 문의가 접수되었습니다!';
+            submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+            // Reset after 3 seconds
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+                contactForm.reset();
+            }, 3000);
+        });
+
+        // Smooth scroll for links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Counter animation
+        const stats = document.querySelectorAll('.stat-number');
+        const startCounter = (el) => {
+            const target = parseInt(el.textContent);
+            const increment = target / 50;
+            let current = 0;
+
+            const updateCount = () => {
+                current += increment;
+                if (current < target) {
+                    el.textContent = Math.ceil(current) + (el.textContent.includes('+') ? '+' : el.textContent.includes('%') ? '%' : el.textContent.includes('/') ? '/' : '');
+                    setTimeout(updateCount, 20);
+                } else {
+                    el.textContent = el.getAttribute('data-target') || el.textContent;
+                }
+            };
+
+            updateCount();
+        };
+
+        // Observe stats section
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.stat-number').forEach(stat => {
+                        startCounter(stat);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Update select option colors
+        const select = document.getElementById('service');
+        select.addEventListener('change', function() {
+            this.style.color = this.value ? 'white' : 'rgba(255,255,255,0.6)';
+        });
+    </script>
+
+</body>
+</html>
