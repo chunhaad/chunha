@@ -1000,121 +1000,54 @@
 
         /* ===== FOOTER ===== */
         footer {
-            background: #0d0d0d;
+            background: #000;
             color: white;
+            padding: 60px 8%;
             text-align: center;
-            padding: 50px 8%;
-            border-top: 3px solid var(--primary);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin-bottom: 40px;
-            text-align: left;
+            margin-bottom: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .footer-section h4 {
-            font-size: 16px;
+        .footer-section h3 {
             margin-bottom: 15px;
             color: var(--primary);
-            font-weight: 600;
         }
 
         .footer-section p {
             font-size: 14px;
-            color: #aaa;
             line-height: 1.8;
-            margin-bottom: 8px;
+            color: #999;
         }
 
         .footer-section a {
-            color: #aaa;
+            color: var(--primary);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .footer-section a:hover {
-            color: var(--primary);
+            color: white;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 212, 0, 0.2);
-            padding-top: 30px;
-            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
             font-size: 13px;
-            color: #888;
+            color: #666;
         }
 
-        /* ===== SCROLL ANIMATIONS ===== */
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 5%;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            nav {
-                display: none;
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                gap: 0;
-                background: var(--secondary);
-                padding: 20px;
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            nav a {
-                padding: 15px;
-                border-bottom: 1px solid rgba(255, 212, 0, 0.1);
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                height: auto;
-                padding: 60px 20px;
-                margin-top: 60px;
-            }
-
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
             .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .shape-circle-1,
-            .shape-circle-2,
-            .shape-square,
-            .shape-diamond {
-                display: none;
+                font-size: 48px;
             }
 
             .section {
@@ -1170,6 +1103,100 @@
 
             footer {
                 padding: 40px 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 4%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                gap: 10px;
+                flex-direction: column;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            #portfolio {
+                padding: 60px 5%;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+
+            .portfolio-item {
+                height: 380px;
+            }
+
+            .portfolio-overlay h3 {
+                font-size: 24px;
+            }
+
+            .portfolio-overlay p {
+                font-size: 14px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-filters {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+
+            footer {
+                padding: 40px 3%;
             }
 
             .footer-content {
@@ -1346,7 +1373,7 @@
 
         <div class="portfolio-grid">
             <div class="portfolio-item" data-category="led">
-                <img src="images/led-sign.jpg" alt="LED 간판" loading="lazy">
+                <img src="led sign.jpg" alt="LED 간판" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>LED 간판</h3>
                     <p>고급 LED 채널간판 시공 사례</p>
@@ -1404,28 +1431,28 @@
             <div class="card">
                 <div class="card-icon">🎨</div>
                 <h3>LED 간판</h3>
-                <p>고급스러운 LED 채널간판부터 일반 LED 간판까지 다양한 LED 광고물을 기획, 디자인, 제작, 설치까지 전문적으로 진행하고 있습니다. 최신 LED 기술을 활용한 에너지 효율적이고 수명이 긴 제품으로 고객 만족을 최우선으로 합니다.</p>
+                <p>LED 간판은 높은 시인성과 우수한 내구성으로 주목도가 높습니다. 밝고 선명한 LED 간판으로 고객의 눈길을 사로잡으세요. 야간에도 뛰어난 광고 효과를 제공합니다.</p>
                 <a href="#contact" class="card-link">자세히 알아보기 →</a>
             </div>
 
             <div class="card">
                 <div class="card-icon">🏢</div>
                 <h3>건물간판</h3>
-                <p>건물 외벽에 설치되는 건물간판은 건물의 인상을 결정하는 중요한 요소입니다. 건축물과 어울리는 디자인부터 내구성 높은 재료 선택, 정확한 설치까지 모든 과정을 책임지고 진행합니다. 오래도록 아름답게 유지되는 건물간판을 만들어드립니다.</p>
+                <p>건물의 외형을 한 번에 결정하는 건물간판은 기업 이미지를 나타내는 첫인상입니다. 세련되고 안정적인 디자인의 건물간판으로 신뢰를 얻으세요.</p>
                 <a href="#contact" class="card-link">자세히 알아보기 →</a>
             </div>
 
             <div class="card">
-                <div class="card-icon">🎯</div>
+                <div class="card-icon">📌</div>
                 <h3>돌출간판</h3>
-                <p>보행자의 시선을 사로잡는 돌출간판은 상권 활성화에 필수적인 광고물입니다. 눈에 띄는 디자인과 튼튼한 구조, 안전한 설치로 골목상권을 살리는 데 앞장서겠습니다. 보기 좋고 오래가는 돌출간판을 약속합니다.</p>
+                <p>거리에서 눈에 띄는 돌출간판은 강렬한 광고 효과를 제공합니다. 건물 외벽에서 돌출되어 높은 시인성을 자랑하는 돌출간판으로 매장 인지도를 높이세요.</p>
                 <a href="#contact" class="card-link">자세히 알아보기 →</a>
             </div>
 
             <div class="card">
-                <div class="card-icon">📋</div>
+                <div class="card-icon">🎪</div>
                 <h3>현수막</h3>
-                <p>계절성 있는 이벤트나 특정 시즌의 홍보를 위해 현수막은 매우 효과적인 광고 수단입니다. 선명한 디자인과 튼튼한 재질로 오래 사용할 수 있으며, 빠른 제작 시간으로 급한 상황에도 대응 가능합니다. 효과 높은 현수막을 만들어드립니다.</p>
+                <p>계절에 따라 필요한 현수막은 빠른 제작과 시공이 특징입니다. 이벤트나 프로모션에 효과적인 현수막으로 즉각적인 광고 효과를 거두세요.</p>
                 <a href="#contact" class="card-link">자세히 알아보기 →</a>
             </div>
 
@@ -1446,15 +1473,27 @@
             <div class="card">
                 <div class="card-icon">🎁</div>
                 <h3>각종 광고물</h3>
-                <p>명함, 전단지, 봉투, 스티커 등 소품부터 대형 옥외광고물까지 필요한 모든 광고물을 제작합니다. 각 매체에 맞는 전문적인 디자인과 인쇄로 브랜드 이미지를 높이고 마케팅 효과를 극대화할 수 있도록 도와드립니다.</p>
+                <p>스티커, 전단, 명함 등 다양한 광고물의 제작을 전담합니다. 기획부터 디자인, 인쇄까지 한 번에 처리하여 고객만족도 높은 광고물 제작 서비스를 제공합니다.</p>
                 <a href="#contact" class="card-link">자세히 알아보기 →</a>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="card-icon">🤝</div>
-                <h3>종합 광고 솔루션</h3>
-                <p>아이디어 제시부터 디자인, 제작, 시공, 설치까지 모든 과정을 한 업체에서 담당합니다. 고객의 예산과 목표에 맞는 최적의 광고 전략을 제시하고 효과 높은 결과를 만들어냅니다. 신뢰할 수 있는 천하종합광고와 함께하세요.</p>
-                <a href="#contact" class="card-link">자세히 알아보기 →</a>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">시공 완료</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">경력 년수</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">고객 만족도</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">전문가 상담</div>
             </div>
         </div>
     </section>
@@ -1465,23 +1504,23 @@
         
         <div class="contact-content">
             <div class="contact-info">
-                <h3>🎯 연락처 정보</h3>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">☎️</div>
-                    <div class="contact-details">
-                        <h4>연락처 1</h4>
-                        <p>010-3715-8611</p>
-                        <button class="contact-phone-btn" onclick="window.location.href='tel:010-3715-8611'">전화 걸기</button>
-                    </div>
-                </div>
+                <h3>📞 연락처</h3>
 
                 <div class="contact-item">
                     <div class="contact-icon">☎️</div>
                     <div class="contact-details">
-                        <h4>연락처 2</h4>
+                        <h4>전화</h4>
+                        <p>010-3715-8611</p>
+                        <button class="contact-phone-btn" onclick="window.location.href='tel:010-3715-8611';">전화 걸기</button>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <h4>대표 전화</h4>
                         <p>064-751-8001</p>
-                        <button class="contact-phone-btn" onclick="window.location.href='tel:064-751-8001'">전화 걸기</button>
+                        <button class="contact-phone-btn" onclick="window.location.href='tel:064-751-8001';">전화 걸기</button>
                     </div>
                 </div>
 
@@ -1514,30 +1553,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="company">회사명/상호명</label>
-                    <input type="text" id="company" name="company" placeholder="회사명을 입력하세요">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="service">관심 서비스 *</label>
-                    <select id="service" name="service" required>
-                        <option value="">서비스를 선택해주세요</option>
+                    <label for="subject">제목 *</label>
+                    <input type="text" id="subject" name="subject" placeholder="문의 제목을 입력하세요" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">카테고리</label>
+                    <select id="category" name="category">
+                        <option value="">선택해주세요</option>
                         <option value="led">LED 간판</option>
-                        <option value="wall">건물간판</option>
+                        <option value="building">건물간판</option>
                         <option value="protrusion">돌출간판</option>
                         <option value="banner">현수막</option>
                         <option value="printing">실사출력</option>
-                        <option value="sheet">시트지</option>
-                        <option value="etc">기타 문의</option>
+                        <option value="sheet">윈도우시트지</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">문의 내용 *</label>
-                    <textarea id="message" name="message" rows="5" placeholder="문의 내용을 입력해주세요" required></textarea>
+                    <label for="message">내용 *</label>
+                    <textarea id="message" name="message" placeholder="문의 내용을 입력하세요" rows="5" required></textarea>
                 </div>
 
-                <button type="submit" class="btn"><span>📧 상담 신청</span></button>
+                <button type="submit">문의 보내기</button>
             </form>
         </div>
     </section>
@@ -1546,21 +1589,15 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>천하종합광고</h4>
-                <p>제주 지역 간판 제작, LED 채널간판, 현수막, 실사출력, 광고물 제작 및 시공 전문업체 천하종합광고입니다.</p>
-                <p>기획부터 디자인, 제작, 시공까지 원스톱 광고 솔루션으로 고객 만족도 최고의 서비스를 제공하고 있습니다.</p>
+                <h3>천하종합광고</h3>
+                <p>기획부터 디자인, 제작, 시공까지<br>원스톱 광고 솔루션 제공</p>
             </div>
             <div class="footer-section">
-                <h4>서비스</h4>
-                <p><a href="#service">LED 간판</a></p>
-                <p><a href="#service">건물간판</a></p>
-                <p><a href="#service">돌출간판</a></p>
-                <p><a href="#service">현수막</a></p>
-                <p><a href="#service">실사출력</a></p>
-                <p><a href="#service">시트지</a></p>
+                <h3>서비스</h3>
+                <p><a href="#portfolio">포트폴리오</a><br><a href="#service">서비스 안내</a><br><a href="#contact">문의하기</a></p>
             </div>
             <div class="footer-section">
-                <h4>연락처</h4>
+                <h3>연락처</h3>
                 <p>전화: <a href="tel:010-3715-8611">010-3715-8611</a></p>
                 <p>전화: <a href="tel:064-751-8001">064-751-8001</a></p>
                 <p>이메일: <a href="mailto:tryald@hanmail.net">tryald@hanmail.net</a></p>
@@ -1575,47 +1612,11 @@
     <!-- FLOATING BUTTONS -->
     <div class="floating-buttons">
         <a href="tel:010-3715-8611" class="floating-btn phone" title="전화 걸기">☎️</a>
-        <a href="http://pf.kakao.com/_xnnxjxc" class="floating-btn kakao" title="카톡 상담" target="_blank">💬</a>
+        <a href="https://pf.kakao.com/_xrFxxhC" class="floating-btn kakao" title="카카오톡">카</a>
     </div>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-
-        // Close menu when link is clicked
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-            });
-        });
-
-        // Scroll animation for elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe cards and other elements
-        document.querySelectorAll('.card, .stat, .about-text, .portfolio-item').forEach(el => {
-            el.style.opacity = '0';
-            observer.observe(el);
-        });
-
-        // Portfolio filter functionality
+        // Portfolio filtering
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
@@ -1624,66 +1625,49 @@
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                const filter = btn.getAttribute('data-filter');
+                const filterValue = btn.getAttribute('data-filter');
 
                 portfolioItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    if (filterValue === 'all') {
                         item.style.display = 'block';
-                        item.style.animation = 'fadeInUp 0.6s ease-out';
                     } else {
-                        item.style.display = 'none';
+                        if (item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
                     }
                 });
             });
         });
 
-        // Form submission
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.style.display = mainNav.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Contact form submission
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
+            
+            // Collect form data
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
-
+            
+            // Log form data
+            console.log('Form submitted:', data);
+            
             // Show success message
-            const submitBtn = contactForm.querySelector('button');
-            const originalText = submitBtn.textContent;
-            submitBtn.innerHTML = '<span>✓ 상담 신청이 완료되었습니다!</span>';
-            submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-
-            // Reset after 3 seconds
-            setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = '';
-                contactForm.reset();
-            }, 3000);
-
-            console.log('Form Data:', data);
-        });
-
-        // Smooth scroll for links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Update select option colors
-        const select = document.getElementById('service');
-        select.addEventListener('change', function() {
-            this.style.color = this.value ? 'white' : 'rgba(255,255,255,0.6)';
+            alert('문의가 접수되었습니다. 빠른 시간 내에 연락드리겠습니다.');
+            
+            // Reset form
+            contactForm.reset();
         });
     </script>
-
 </body>
+
 </html>
