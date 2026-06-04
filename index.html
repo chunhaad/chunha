@@ -1356,7 +1356,7 @@
         </div>
     </div>
 
-    <!-- PORTFOLIO SECTION -->
+<!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="section">
         <h2 class="section-title">포트폴리오</h2>
         <p class="section-subtitle">다양한 광고 제작 사례와 성공 사례들</p>
@@ -1371,89 +1371,64 @@
             <button class="filter-btn" data-filter="sheet">시트지</button>
         </div>
 
-<div class="portfolio-grid">
+        <div class="portfolio-grid">
 
-    <div class="portfolio-item" data-category="led">
-        <img src="led-sign.png" alt="LED 간판" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>LED 간판</h3>
-            <p>고급 LED 채널간판 시공 사례</p>
+            <!-- 1. LED 간판 (클릭 시 LED 필터가 작동하도록 onclick 추가) -->
+            <div class="portfolio-item" data-category="led" onclick="document.querySelector('[data-filter=led]').click()">
+                <img src="led-sign.png" alt="LED 간판" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>LED 간판</h3>
+                    <p>고급 LED 채널간판 시공 사례</p>
+                </div>
+            </div>
+
+            <!-- 2. 건물간판 -->
+            <div class="portfolio-item" data-category="wall">
+                <img src="images/work2.jpg" alt="건물간판 시공 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>建物간판</h3>
+                    <p>모던한 디자인 포트폴리오</p>
+                </div>
+            </div>
+
+            <!-- 3. 현수막 -->
+            <div class="portfolio-item" data-category="banner">
+                <img src="images/work3.jpg" alt="현수막 디자인 제작" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>현수막 제작</h3>
+                    <p>눈에 띄는 현수막 제작 사례</p>
+                </div>
+            </div>
+
+            <!-- 4. 채널간판(LED) -->
+            <div class="portfolio-item" data-category="led">
+                <img src="images/work4.jpg" alt="LED 간판 설치 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>채널간판</h3>
+                    <p>LED 고급 간판</p>
+                </div>
+            </div>
+
+            <!-- 5. 실사출력 -->
+            <div class="portfolio-item" data-category="printing">
+                <img src="images/work5.jpg" alt="실사출력 제작 포트폴리오" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>광고 시공</h3>
+                    <p>실사출력 포트폴리오</p>
+                </div>
+            </div>
+
+            <!-- 6. 돌출간판 -->
+            <div class="portfolio-item" data-category="protrusion">
+                <img src="images/work6.jpg" alt="돌출간판 설치 사례" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>돌출간판</h3>
+                    <p>돌출간판 포트폴리오</p>
+                </div>
+            </div>
+
         </div>
-    </div>
-
-    <div class="portfolio-item" data-category="wall">
-        <img src="images/work2.jpg" alt="건물간판 시공 사례" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>건물간판</h3>
-            <p>모던한 디자인 포트폴리오</p>
-        </div>
-    </div>
-
-    <div class="portfolio-item" data-category="banner">
-        <img src="images/work3.jpg" alt="현수막 디자인 제작" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>현수막 제작</h3>
-            <p>눈에 띄는 현수막 제작 사례</p>
-        </div>
-    </div>
-
-    <div class="portfolio-item" data-category="led">
-        <img src="images/work4.jpg" alt="LED 간판 설치 사례" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>채널간판</h3>
-            <p>LED 고급 간판</p>
-        </div>
-    </div>
-
-    <div class="portfolio-item" data-category="printing">
-        <img src="images/work5.jpg" alt="실사출력 제작 포트폴리오" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>광고 시공</h3>
-            <p>실사출력 포트폴리오</p>
-        </div>
-    </div>
-
-    <div class="portfolio-item" data-category="protrusion">
-        <img src="images/work6.jpg" alt="돌출간판 설치 사례" loading="lazy">
-        <div class="portfolio-overlay">
-            <h3>돌출간판</h3>
-            <p>돌출간판 포트폴리오</p>
-        </div>
-    </div>
-
-</div>
-그리고 LED 사진 클릭하면 LED 필터로 이동하게 하려면
-
-첫 번째 카드만 이렇게 수정.
-
-<div class="portfolio-item"
-     data-category="led"
-     onclick="document.querySelector('[data-filter=led]').click()">
-
-최종 모습은
-
-<div class="portfolio-item"
-     data-category="led"
-     onclick="document.querySelector('[data-filter=led]').click()">
-
-    <img src="led-sign.png" alt="LED 간판" loading="lazy">
-
-    <div class="portfolio-overlay">
-        <h3>LED 간판</h3>
-        <p>고급 LED 채널간판 시공 사례</p>
-    </div>
-</div>
-마지막으로 확인할 것
-led-sign.png 파일이 index.html과 같은 폴더에 있는지
-파일명이 정확히 led-sign.png인지 (LED-sign.png, led-sign.PNG 아님)
-저장(Ctrl+S) 후 브라우저에서 Ctrl+F5 강력 새로고침
-
-지금 올려준 코드 기준으로는 HTML 구조가 깨진 게 100% 원인이야.
-
-혹시 가능하면 <div class="portfolio-grid">부터 </div><!-- portfolio-grid 끝 -->까지만 다시 캡처해서 보내주면, 내가 바로 붙여넣기만 하면 되는 완성본으로 정리해줄게.
-    </section>
-
-    <!-- SERVICES SECTION -->
+    </section>    <!-- SERVICES SECTION -->
     <section id="service" class="section">
         <h2 class="section-title">서비스 안내</h2>
         <p class="section-subtitle">제주 지역 최고의 간판·옥외광고 제작 및 시공 서비스</p>
