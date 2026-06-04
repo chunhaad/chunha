@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OO간판은 LED 채널간판, 현수막, 실사출력, 건물 외벽 사인 등 옥외광고 전문기업입니다. 기획·디자인·제작·시공까지 원스톱 서비스를 제공합니다.">
-    <meta name="keywords" content="간판, 옥외광고, LED간판, 채널간판, 현수막, 실사출력, 건물간판, 간판제작, 간판시공">
-    <meta name="author" content="OO간판">
-    <meta name="theme-color" content="#0f172a">
-    <meta property="og:title" content="OO간판 | 프리미엄 옥외광고 전문업체">
-    <meta property="og:description" content="기획·디자인·제작·시공까지 원스톱 서비스">
+    <meta name="description" content="제주 지역 간판 제작, LED 채널간판, 현수막, 실사출력, 광고물 제작 및 시공 전문업체 천하종합광고">
+    <meta name="keywords" content="제주간판, 간판제작, LED간판, 채널간판, 현수막, 실사출력, 건물간판, 돌출간판, 윈도우시트지, 광고물제작, 광고물시공">
+    <meta name="author" content="천하종합광고">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta property="og:title" content="천하종합광고 | 제주 간판·옥외광고 전문업체">
+    <meta property="og:description" content="기획부터 디자인, 제작, 시공까지 원스톱 광고 솔루션">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/og-image.jpg">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://example.com/">
-    <title>OO간판 | 프리미엄 옥외광고 전문업체 - LED간판, 채널간판 시공</title>
+    <title>천하종합광고 | 제주 간판·옥외광고 전문업체</title>
 
     <style>
         * {
@@ -23,14 +23,14 @@
         }
 
         :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #f97316;
-            --accent-light: #fb923c;
+            --primary: #FFD700;
+            --primary-dark: #FFC700;
+            --secondary: #1a1a1a;
+            --secondary-light: #2d2d2d;
             --text-light: #f8fafc;
-            --text-dark: #1e293b;
+            --text-dark: #1a1a1a;
             --border: #e2e8f0;
-            --success: #10b981;
+            --accent: #FFD700;
         }
 
         html {
@@ -99,10 +99,10 @@
 
         @keyframes glow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
             }
             50% {
-                box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
             }
         }
 
@@ -117,7 +117,7 @@
 
         /* ===== HEADER ===== */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             color: white;
             padding: 15px 8%;
             display: flex;
@@ -127,7 +127,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             animation: slideInDown 0.6s ease-out;
         }
 
@@ -145,7 +145,7 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -174,7 +174,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent);
+            background: var(--primary);
             transition: width 0.3s ease;
         }
 
@@ -194,7 +194,7 @@
         /* ===== HERO ===== */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -209,7 +209,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(249,115,22,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="none"/><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,215,0,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="none"/><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
             opacity: 0.3;
         }
 
@@ -217,8 +217,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -238,7 +238,7 @@
         }
 
         .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -266,8 +266,8 @@
             justify-content: center;
             gap: 10px;
             padding: 16px 35px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-dark);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -275,23 +275,24 @@
             transition: all 0.3s ease;
             cursor: pointer;
             font-size: 16px;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
         }
 
         .btn.secondary {
             background: transparent;
-            border: 2px solid white;
+            border: 2px solid var(--primary);
+            color: white;
             box-shadow: none;
         }
 
         .btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
 
         /* ===== SECTIONS ===== */
@@ -305,7 +306,7 @@
             margin-bottom: 60px;
             font-size: 42px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--text-dark);
             position: relative;
             animation: fadeInUp 0.8s ease-out both;
         }
@@ -315,7 +316,7 @@
             display: block;
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
             margin: 15px auto 0;
             border-radius: 2px;
         }
@@ -329,7 +330,7 @@
 
         /* ===== ABOUT SECTION ===== */
         #about {
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafaf0 100%);
         }
 
         .about-content {
@@ -343,7 +344,7 @@
         .about-text h3 {
             font-size: 28px;
             margin-bottom: 20px;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .about-text p {
@@ -368,6 +369,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
         }
 
         .feature-item:hover {
@@ -377,14 +379,14 @@
 
         .feature-icon {
             font-size: 24px;
-            color: var(--accent);
+            color: var(--primary);
             flex-shrink: 0;
         }
 
         .feature-text h4 {
             font-size: 14px;
             margin-bottom: 5px;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .feature-text p {
@@ -400,13 +402,14 @@
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             animation: slideInRight 0.8s ease-out;
+            border: 4px solid var(--primary);
         }
 
         .about-image::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
             z-index: 1;
         }
 
@@ -447,7 +450,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
@@ -459,8 +462,8 @@
 
         .card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.2);
-            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+            border-color: var(--primary);
         }
 
         .card-icon {
@@ -472,7 +475,7 @@
         .card h3 {
             font-size: 22px;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: 600;
         }
 
@@ -484,7 +487,7 @@
         }
 
         .card-link {
-            color: var(--accent);
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -499,7 +502,7 @@
 
         /* ===== PORTFOLIO SECTION ===== */
         #portfolio {
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafaf0 100%);
         }
 
         .portfolio-filters {
@@ -513,38 +516,40 @@
 
         .filter-btn {
             padding: 10px 25px;
-            border: 2px solid var(--border);
+            border: 2px solid var(--secondary);
             background: white;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--secondary);
             font-size: 14px;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: white;
-            border-color: var(--accent);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-dark);
+            border-color: var(--primary);
             transform: scale(1.05);
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
             animation: fadeInUp 0.8s ease-out both;
         }
 
         .portfolio-item {
             position: relative;
-            height: 300px;
+            height: 350px;
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             group: portfolio;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--primary);
         }
 
         .portfolio-item img {
@@ -561,7 +566,7 @@
         .portfolio-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -577,13 +582,14 @@
         }
 
         .portfolio-overlay h3 {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 10px;
             font-weight: 600;
+            color: white;
         }
 
         .portfolio-overlay p {
-            font-size: 14px;
+            font-size: 16px;
             opacity: 0.9;
         }
 
@@ -601,7 +607,7 @@
         }
 
         .step {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             color: white;
             padding: 40px 20px;
             border-radius: 12px;
@@ -622,8 +628,9 @@
 
         .step:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
         }
 
         .step::before {
@@ -634,7 +641,7 @@
             transform: translateX(-50%);
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -642,6 +649,7 @@
             font-size: 18px;
             font-weight: bold;
             border: 3px solid white;
+            color: var(--secondary);
         }
 
         .process-line {
@@ -650,7 +658,7 @@
             left: -50%;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
+            background: linear-gradient(90deg, var(--primary), transparent);
             z-index: -1;
         }
 
@@ -670,6 +678,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             animation: fadeInUp 0.8s ease-out both;
+            border-top: 4px solid var(--primary);
         }
 
         .stat:hover {
@@ -679,7 +688,7 @@
         .stat-number {
             font-size: 42px;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -694,7 +703,7 @@
 
         /* ===== CONTACT SECTION ===== */
         #contact {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             color: white;
         }
 
@@ -702,7 +711,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
@@ -713,25 +722,32 @@
             gap: 30px;
         }
 
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
         .contact-item {
             display: flex;
             gap: 20px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 215, 0, 0.08);
             border-radius: 10px;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.2);
         }
 
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 215, 0, 0.15);
             transform: translateX(10px);
+            border-color: var(--primary);
         }
 
         .contact-icon {
             font-size: 28px;
-            color: var(--accent);
+            color: var(--primary);
             flex-shrink: 0;
         }
 
@@ -744,6 +760,25 @@
         .contact-details p {
             font-size: 14px;
             opacity: 0.9;
+        }
+
+        .contact-phone-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            margin-top: 8px;
+            width: 100%;
+        }
+
+        .contact-phone-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
         }
 
         .contact-form {
@@ -759,16 +794,18 @@
             margin-bottom: 8px;
             font-weight: 500;
             font-size: 14px;
+            color: var(--primary);
         }
 
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
             padding: 14px;
             margin-bottom: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.2);
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 215, 0, 0.05);
             color: white;
             font-family: 'Noto Sans KR', sans-serif;
             transition: all 0.3s ease;
@@ -781,17 +818,18 @@
         }
 
         .contact-form input:focus,
-        .contact-form textarea:focus {
+        .contact-form textarea:focus,
+        .contact-form select:focus {
             outline: none;
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+            border-color: var(--primary);
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
 
         .contact-form button {
             width: 100%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
             border: none;
             padding: 16px 30px;
             cursor: pointer;
@@ -799,12 +837,12 @@
             font-weight: 600;
             font-size: 16px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
 
         .contact-form button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
         }
 
         /* ===== FLOATING BUTTONS ===== */
@@ -828,7 +866,7 @@
             text-decoration: none;
             font-size: 28px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             animation: slideInRight 0.6s ease-out, float 3s ease-in-out infinite;
         }
 
@@ -836,8 +874,8 @@
         .floating-btn:nth-child(2) { animation-delay: 0.1s, 0.2s; }
 
         .floating-btn.phone {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
         }
 
         .floating-btn.kakao {
@@ -848,7 +886,7 @@
 
         .floating-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
         .floating-btn.phone:hover {
@@ -857,11 +895,11 @@
 
         /* ===== FOOTER ===== */
         footer {
-            background: #111827;
+            background: #0d0d0d;
             color: white;
             text-align: center;
             padding: 50px 8%;
-            border-top: 2px solid var(--accent);
+            border-top: 3px solid var(--primary);
         }
 
         .footer-content {
@@ -875,7 +913,7 @@
         .footer-section h4 {
             font-size: 16px;
             margin-bottom: 15px;
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 600;
         }
 
@@ -883,6 +921,7 @@
             font-size: 14px;
             color: #aaa;
             line-height: 1.8;
+            margin-bottom: 8px;
         }
 
         .footer-section a {
@@ -892,11 +931,11 @@
         }
 
         .footer-section a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
             padding-top: 30px;
             text-align: center;
             font-size: 13px;
@@ -927,7 +966,7 @@
                 right: 0;
                 flex-direction: column;
                 gap: 0;
-                background: var(--primary);
+                background: var(--secondary);
                 padding: 20px;
             }
 
@@ -937,7 +976,7 @@
 
             nav a {
                 padding: 15px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 215, 0, 0.1);
             }
 
             .mobile-menu-btn {
@@ -995,6 +1034,10 @@
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
 
             .floating-buttons {
@@ -1062,6 +1105,10 @@
                 font-size: 12px;
             }
 
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
             .process-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
@@ -1081,7 +1128,7 @@
 
         /* ===== LOADING ANIMATION ===== */
         .loading {
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
             background-size: 200% 100%;
             animation: shimmer 2s infinite;
         }
@@ -1092,7 +1139,7 @@
 
     <!-- HEADER -->
     <header>
-        <div class="logo">OO간판</div>
+        <div class="logo">천하종합광고</div>
         <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         <nav id="mainNav">
             <a href="#about">회사소개</a>
@@ -1107,10 +1154,9 @@
     <section class="hero">
         <div class="hero-content">
             <h1>
-                <span class="highlight">눈에 띄는 간판</span><br>
-                성공하는 비즈니스의 시작
+                <span class="highlight">제주 간판·옥외광고 전문기업</span>
             </h1>
-            <p>기획·디자인·제작·시공까지 원스톱 프리미엄 서비스</p>
+            <p>기획부터 디자인, 제작, 시공까지 원스톱 광고 솔루션</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn">💬 무료 견적 문의</a>
                 <a href="#portfolio" class="btn secondary">📸 시공 사례 보기</a>
@@ -1123,9 +1169,9 @@
         <h2 class="section-title">회사소개</h2>
         <div class="about-content">
             <div class="about-text">
-                <h3>프리미엄 옥외광고 전문기업</h3>
-                <p>OO간판은 15년 이상의 경험으로 LED 채널간판, 현수막, 실사출력, 건물 외벽 사인 및 각종 광고물 제작을 전문으로 하는 옥외광고 전문기업입니다.</p>
-                <p>고객의 브랜드 가치를 최대한 표현하고, 최고 품질의 시공으로 신뢰받는 파트너가 되기 위해 끊임없이 노력하고 있습니다.</p>
+                <h3>제주 지역 최고의 옥외광고 전문기업</h3>
+                <p>천하종합광고는 제주 지역에서 15년 이상의 경험을 바탕으로 LED 채널간판, 건물간판, 돌출간판, 현수막, 실사출력, 윈도우 시트지 등 다양한 옥외광고물 제작 및 시공 전문기업입니다.</p>
+                <p>기획부터 디자인, 제작, 시공까지 원스톱 서비스를 제공하여 고객의 브랜드 가치를 최대한 표현하고, 최고 품질의 시공으로 신뢰받는 파트너가 되기 위해 끊임없이 노력하고 있습니다.</p>
                 
                 <div class="about-features">
                     <div class="feature-item">
@@ -1159,7 +1205,7 @@
                 </div>
             </div>
             <div class="about-image">
-                <img src="images/about-image.jpg" alt="OO간판 시공 사례" loading="lazy">
+                <img src="images/about-image.jpg" alt="천하종합광고 시공 사례" loading="lazy">
             </div>
         </div>
 
@@ -1187,7 +1233,7 @@
     <!-- SERVICES SECTION -->
     <section id="service" class="section">
         <h2 class="section-title">주요 서비스</h2>
-        <p class="section-subtitle">최고 품질의 옥외광고 서비스를 제공합니다</p>
+        <p class="section-subtitle">제주 지역 최고의 광고 서비스를 제공합니다</p>
         
         <div class="services">
             <div class="card">
@@ -1199,8 +1245,15 @@
 
             <div class="card">
                 <div class="card-icon">🏢</div>
-                <h3>건물 외벽 간판</h3>
+                <h3>건물 간판</h3>
                 <p>가시성과 홍보 효과를 극대화하며, 건물의 외관을 해치지 않는 세련된 디자인으로 도시경관에 어울립니다. 안정성과 내구성을 보장합니다.</p>
+                <a href="#contact" class="card-link">상담받기 →</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📍</div>
+                <h3>돌출 간판</h3>
+                <p>거리에서 눈에 띄는 돌출간판으로 고객 유입을 극대화합니다. 전문적인 설계와 시공으로 안전성과 미관을 모두 갖춘 솔루션입니다.</p>
                 <a href="#contact" class="card-link">상담받기 →</a>
             </div>
 
@@ -1219,16 +1272,16 @@
             </div>
 
             <div class="card">
-                <div class="card-icon">🎨</div>
-                <h3>간판 디자인</h3>
-                <p>전문 디자이너가 브랜드 정체성을 반영한 창의적인 디자인을 제공합니다. 타겟 고객에게 최대한의 어필력을 갖춘 디자인으로 성공을 보장합니다.</p>
+                <div class="card-icon">🪟</div>
+                <h3>윈도우 시트지</h3>
+                <p>매장 윈도우를 효과적으로 꾸밀 수 있는 시트지로 고객 눈길을 사로잡습니다. 계절별 프로모션에도 빠르게 적용 가능합니다.</p>
                 <a href="#contact" class="card-link">상담받기 →</a>
             </div>
 
             <div class="card">
-                <div class="card-icon">🔧</div>
-                <h3>A/S 및 유지보수</h3>
-                <p>전문 기술진의 정기적인 점검과 유지보수로 항상 최상의 상태를 유지합니다. 긴급 고장 시 24시간 신속한 대응 서비스를 제공합니다.</p>
+                <div class="card-icon">🎨</div>
+                <h3>광고물 제작·시공</h3>
+                <p>전문 디자이너가 브랜드 정체성을 반영한 창의적인 광고물을 제작합니다. 기획부터 시공까지 원스톱 서비스로 성공을 보장합니다.</p>
                 <a href="#contact" class="card-link">상담받기 →</a>
             </div>
         </div>
@@ -1237,12 +1290,13 @@
     <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="section">
         <h2 class="section-title">시공 사례</h2>
-        <p class="section-subtitle">다양한 프로젝트 경험으로 신뢰받고 있습니다</p>
+        <p class="section-subtitle">천하종합광고의 다양한 프로젝트 경험</p>
         
         <div class="portfolio-filters">
             <button class="filter-btn active" data-filter="all">모두 보기</button>
             <button class="filter-btn" data-filter="led">LED 간판</button>
-            <button class="filter-btn" data-filter="wall">외벽 간판</button>
+            <button class="filter-btn" data-filter="wall">건물간판</button>
+            <button class="filter-btn" data-filter="protrusion">돌출간판</button>
             <button class="filter-btn" data-filter="banner">현수막</button>
             <button class="filter-btn" data-filter="printing">실사출력</button>
         </div>
@@ -1252,15 +1306,15 @@
                 <img src="images/work1.jpg" alt="LED 채널간판 시공 사례" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>프리미엄 카페</h3>
-                    <p>LED 채널간판</p>
+                    <p>LED 채널간판 시공</p>
                 </div>
             </div>
 
             <div class="portfolio-item" data-category="wall">
-                <img src="images/work2.jpg" alt="외벽 간판 시공 사례" loading="lazy">
+                <img src="images/work2.jpg" alt="건물간판 시공 사례" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>의류매장</h3>
-                    <p>건물 외벽 간판</p>
+                    <p>건물 간판 시공</p>
                 </div>
             </div>
 
@@ -1268,7 +1322,7 @@
                 <img src="images/work3.jpg" alt="현수막 시공 사례" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>상품 프로모션</h3>
-                    <p>현수막·배너</p>
+                    <p>현수막 제작 및 시공</p>
                 </div>
             </div>
 
@@ -1283,16 +1337,16 @@
             <div class="portfolio-item" data-category="printing">
                 <img src="images/work5.jpg" alt="실사출력 시공 사례" loading="lazy">
                 <div class="portfolio-overlay">
-                    <h3>건설사 옥외광고</h3>
-                    <p>실사출력</p>
+                    <h3>건설사 광고</h3>
+                    <p>실사출력 시공</p>
                 </div>
             </div>
 
-            <div class="portfolio-item" data-category="wall">
-                <img src="images/work6.jpg" alt="외벽 간판 시공 사례" loading="lazy">
+            <div class="portfolio-item" data-category="protrusion">
+                <img src="images/work6.jpg" alt="돌출간판 시공 사례" loading="lazy">
                 <div class="portfolio-overlay">
                     <h3>뷰티샵</h3>
-                    <p>건물 외벽 간판</p>
+                    <p>돌출간판 시공</p>
                 </div>
             </div>
         </div>
@@ -1336,14 +1390,23 @@
         
         <div class="contact-content">
             <div class="contact-info">
-                <h3 style="margin-bottom: 20px; font-size: 24px;">언제든지 연락주세요</h3>
+                <h3>📞 언제든지 연락주세요</h3>
                 
                 <div class="contact-item">
-                    <div class="contact-icon">📞</div>
+                    <div class="contact-icon">☎️</div>
                     <div class="contact-details">
-                        <h4>전화</h4>
-                        <p>010-0000-0000</p>
-                        <p>02-000-0000</p>
+                        <h4>전화 1</h4>
+                        <p>010-3715-8611</p>
+                        <button class="contact-phone-btn" onclick="window.location.href='tel:010-3715-8611'">전화하기</button>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">☎️</div>
+                    <div class="contact-details">
+                        <h4>전화 2</h4>
+                        <p>064-751-8001</p>
+                        <button class="contact-phone-btn" onclick="window.location.href='tel:064-751-8001'">전화하기</button>
                     </div>
                 </div>
 
@@ -1351,7 +1414,7 @@
                     <div class="contact-icon">✉️</div>
                     <div class="contact-details">
                         <h4>이메일</h4>
-                        <p>info@oosignage.com</p>
+                        <p>tryald@hanmail.net</p>
                     </div>
                 </div>
 
@@ -1359,50 +1422,43 @@
                     <div class="contact-icon">📍</div>
                     <div class="contact-details">
                         <h4>주소</h4>
-                        <p>서울시 강남구 테헤란로<br>123, 5층</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
-                    <div class="contact-details">
-                        <h4>영업시간</h4>
-                        <p>평일: 09:00 ~ 18:00<br>토요일: 10:00 ~ 16:00<br>일요일: 휴무</p>
+                        <p>제주시 신설로2길 1-11 (지하상가)</p>
                     </div>
                 </div>
             </div>
 
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <label for="name">이름</label>
+                    <label for="name">이름 *</label>
                     <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">연락처</label>
+                    <label for="phone">연락처 *</label>
                     <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="company">업체명</label>
+                    <label for="company">업체명 또는 상호명</label>
                     <input type="text" id="company" name="company" placeholder="업체명을 입력하세요">
                 </div>
 
                 <div class="form-group">
-                    <label for="service">관심 서비스</label>
-                    <select id="service" name="service" style="width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.05); color: white; font-family: 'Noto Sans KR', sans-serif;">
-                        <option value="">선택하세요</option>
+                    <label for="service">관심 서비스 *</label>
+                    <select id="service" name="service" required>
+                        <option value="">서비스를 선택하세요</option>
                         <option value="led">LED 채널간판</option>
-                        <option value="wall">건물 외벽 간판</option>
+                        <option value="wall">건물간판</option>
+                        <option value="protrusion">돌출간판</option>
                         <option value="banner">현수막·배너</option>
                         <option value="printing">실사출력</option>
-                        <option value="design">간판 디자인</option>
-                        <option value="other">기타</option>
+                        <option value="sheet">윈도우 시트지</option>
+                        <option value="etc">기타 광고물</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">문의 내용</label>
+                    <label for="message">문의 내용 *</label>
                     <textarea id="message" name="message" rows="5" placeholder="문의 내용을 자세히 입력해주세요" required></textarea>
                 </div>
 
@@ -1415,31 +1471,35 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>OO간판</h4>
-                <p>프리미엄 옥외광고 전문기업으로서 기획, 디자인, 제작, 시공까지 원스톱 서비스를 제공합니다.</p>
+                <h4>천하종합광고</h4>
+                <p>제주 지역 간판 제작, LED 채널간판, 현수막, 실사출력, 광고물 제작 및 시공 전문업체</p>
+                <p>기획부터 디자인, 제작, 시공까지 원스톱 광고 솔루션을 제공합니다.</p>
             </div>
             <div class="footer-section">
                 <h4>서비스</h4>
                 <p><a href="#service">LED 채널간판</a></p>
-                <p><a href="#service">건물 외벽 간판</a></p>
+                <p><a href="#service">건물 간판</a></p>
+                <p><a href="#service">돌출 간판</a></p>
                 <p><a href="#service">현수막·배너</a></p>
                 <p><a href="#service">실사출력</a></p>
+                <p><a href="#service">윈도우 시트지</a></p>
             </div>
             <div class="footer-section">
                 <h4>연락처</h4>
-                <p>전화: <a href="tel:010-0000-0000">010-0000-0000</a></p>
-                <p>이메일: <a href="mailto:info@oosignage.com">info@oosignage.com</a></p>
-                <p>주소: 서울시 강남구 테헤란로 123</p>
+                <p>전화: <a href="tel:010-3715-8611">010-3715-8611</a></p>
+                <p>전화: <a href="tel:064-751-8001">064-751-8001</a></p>
+                <p>이메일: <a href="mailto:tryald@hanmail.net">tryald@hanmail.net</a></p>
+                <p>주소: 제주시 신설로2길 1-11 (지하상가)</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 OO간판. All Rights Reserved. | <a href="#" style="color: #888;">개인정보처리방침</a> | <a href="#" style="color: #888;">이용약관</a></p>
+            <p>&copy; 2024 천하종합광고. All Rights Reserved. | <a href="#" style="color: #888;">개인정보처리방침</a> | <a href="#" style="color: #888;">이용약관</a></p>
         </div>
     </footer>
 
     <!-- FLOATING BUTTONS -->
     <div class="floating-buttons">
-        <a href="tel:010-0000-0000" class="floating-btn phone" title="전화하기">📞</a>
+        <a href="tel:010-3715-8611" class="floating-btn phone" title="전화하기">📞</a>
         <a href="http://pf.kakao.com/_xnnxjxc" class="floating-btn kakao" title="카톡 상담" target="_blank">💬</a>
     </div>
 
@@ -1510,9 +1570,6 @@
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
 
-            // Here you would typically send this data to your server
-            console.log('Form Data:', data);
-
             // Show success message
             const submitBtn = contactForm.querySelector('button');
             const originalText = submitBtn.textContent;
@@ -1525,6 +1582,8 @@
                 submitBtn.style.background = '';
                 contactForm.reset();
             }, 3000);
+
+            console.log('Form Data:', data);
         });
 
         // Smooth scroll for links
