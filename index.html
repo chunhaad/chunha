@@ -6,7 +6,7 @@
     <meta name="description" content="제주 지역 간판 제작, LED 채널간판, 현수막, 실사출력, 광고물 제작 및 시공 전문업체 천하종합광고">
     <meta name="keywords" content="제주간판, 간판제작, LED간판, 채널간판, 현수막, 실사출력, 건물간판, 돌출간판, 윈도우시트지, 광고물제작, 광고물시공">
     <meta name="author" content="천하종합광고">
-    <meta name="theme-color" content="#1a1a1a">
+    <meta name="theme-color" content="#111111">
     <meta property="og:title" content="천하종합광고 | 제주 간판·옥외광고 전문업체">
     <meta property="og:description" content="기획부터 디자인, 제작, 시공까지 원스톱 광고 솔루션">
     <meta property="og:type" content="website">
@@ -23,14 +23,14 @@
         }
 
         :root {
-            --primary: #FFD700;
-            --primary-dark: #FFC700;
-            --secondary: #1a1a1a;
-            --secondary-light: #2d2d2d;
-            --text-light: #f8fafc;
-            --text-dark: #1a1a1a;
+            --primary: #FFD400;
+            --primary-light: #FFC107;
+            --secondary: #111111;
+            --secondary-light: #1a1a1a;
+            --accent: #FFD400;
+            --text-light: #ffffff;
+            --text-dark: #111111;
             --border: #e2e8f0;
-            --accent: #FFD700;
         }
 
         html {
@@ -79,15 +79,6 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
-        }
-
         @keyframes float {
             0%, 100% {
                 transform: translateY(0px);
@@ -99,19 +90,87 @@
 
         @keyframes glow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+                box-shadow: 0 0 20px rgba(255, 212, 0, 0.3);
             }
             50% {
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+                box-shadow: 0 0 30px rgba(255, 212, 0, 0.6);
             }
         }
 
-        @keyframes shimmer {
+        @keyframes yellowGlow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(255, 212, 0, 0.3), 0 0 40px rgba(255, 212, 0, 0.1);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 212, 0, 0.6), 0 0 60px rgba(255, 212, 0, 0.3);
+            }
+        }
+
+        @keyframes shimmerLine {
             0% {
                 background-position: -1000px 0;
             }
             100% {
                 background-position: 1000px 0;
+            }
+        }
+
+        @keyframes rotateShape {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes floatShape1 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, -30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(0, -60px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-20px, -30px) rotate(270deg);
+            }
+        }
+
+        @keyframes floatShape2 {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(-30px, 20px) rotate(-90deg);
+            }
+            50% {
+                transform: translate(-60px, 0) rotate(-180deg);
+            }
+            75% {
+                transform: translate(-30px, -20px) rotate(-270deg);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
 
@@ -127,29 +186,19 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             animation: slideInDown 0.6s ease-out;
-        }
-
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .logo {
             font-size: 24px;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 212, 0, 0.2);
         }
 
         nav {
@@ -191,65 +240,215 @@
             cursor: pointer;
         }
 
-        /* ===== HERO ===== */
+        /* ===== HERO SECTION ===== */
         .hero {
+            position: relative;
             height: 100vh;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            position: relative;
             overflow: hidden;
             margin-top: 60px;
         }
 
+        /* Hero Background - Gradient Base */
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,215,0,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="none"/><rect width="1200" height="600" fill="url(%23grid)" /></svg>');
-            opacity: 0.3;
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 25%, #0d0d0d 50%, #1a1a1a 75%, #111111 100%);
+            z-index: 0;
         }
 
+        /* Hero Animated Glow Overlay */
         .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 212, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(255, 193, 7, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(255, 212, 0, 0.03) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: 1;
         }
 
+        /* Geometric Lines - Background */
+        .hero-geometric {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(255, 212, 0, 0.15), transparent);
+        }
+
+        .hero-line-1 {
+            width: 200%;
+            height: 1px;
+            top: 25%;
+            left: -50%;
+            animation: shimmerLine 8s infinite;
+        }
+
+        .hero-line-2 {
+            width: 200%;
+            height: 1px;
+            top: 50%;
+            left: -50%;
+            animation: shimmerLine 10s infinite 1s;
+        }
+
+        .hero-line-3 {
+            width: 200%;
+            height: 1px;
+            top: 75%;
+            left: -50%;
+            animation: shimmerLine 12s infinite 2s;
+        }
+
+        /* Vertical Lines */
+        .hero-v-line {
+            position: absolute;
+            width: 1px;
+            height: 200%;
+            background: linear-gradient(180deg, transparent, rgba(255, 212, 0, 0.1), transparent);
+        }
+
+        .hero-v-line-1 {
+            left: 15%;
+            top: -50%;
+            animation: shimmerLine 15s infinite 3s;
+        }
+
+        .hero-v-line-2 {
+            left: 85%;
+            top: -50%;
+            animation: shimmerLine 15s infinite 5s;
+        }
+
+        /* Floating Geometric Shapes */
+        .floating-shape {
+            position: absolute;
+            z-index: 2;
+            border: 2px solid rgba(255, 212, 0, 0.3);
+            animation: floatShape1 20s infinite ease-in-out;
+        }
+
+        .shape-circle-1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 15%;
+            left: 10%;
+            animation: floatShape1 20s infinite ease-in-out;
+        }
+
+        .shape-circle-2 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            bottom: 20%;
+            right: 15%;
+            animation: floatShape2 25s infinite ease-in-out;
+        }
+
+        .shape-square {
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            right: 10%;
+            animation: rotateShape 30s infinite linear;
+            border-radius: 8px;
+        }
+
+        .shape-diamond {
+            width: 70px;
+            height: 70px;
+            top: 40%;
+            left: 5%;
+            animation: floatShape1 22s infinite ease-in-out;
+            transform: rotate(45deg);
+        }
+
+        /* Yellow Accent Lines */
+        .accent-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            z-index: 2;
+        }
+
+        .accent-line-1 {
+            width: 300px;
+            height: 2px;
+            top: 30%;
+            left: -100px;
+            animation: slideInLeft 2s ease-out;
+        }
+
+        .accent-line-2 {
+            width: 300px;
+            height: 2px;
+            bottom: 30%;
+            right: -100px;
+            animation: slideInRight 2s ease-out 0.3s both;
+        }
+
+        /* Hero Content */
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 10;
+            max-width: 900px;
+            padding: 40px 20px;
             animation: fadeInUp 1s ease-out;
-            max-width: 800px;
-            padding: 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 212, 0, 0.1);
+            border: 1px solid rgba(255, 212, 0, 0.3);
+            border-radius: 30px;
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            backdrop-filter: blur(10px);
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 62px;
             margin-bottom: 20px;
             line-height: 1.2;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            font-weight: 700;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            font-weight: 800;
+            letter-spacing: -1px;
+            animation: yellowGlow 3s ease-in-out infinite 0.4s, fadeInUp 1s ease-out 0.4s both;
         }
 
         .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: inline-block;
+            padding: 0 10px;
         }
 
         .hero p {
-            font-size: 22px;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 0.4s both;
+            font-size: 20px;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out 0.6s both;
             font-weight: 300;
             letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .hero-buttons {
@@ -257,7 +456,7 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            animation: fadeInUp 1s ease-out 0.8s both;
         }
 
         .btn {
@@ -265,34 +464,88 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 16px 35px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--text-dark);
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--secondary);
             text-decoration: none;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
             border: 2px solid transparent;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
             font-size: 16px;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(255, 212, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(255, 212, 0, 0.4);
         }
 
         .btn.secondary {
             background: transparent;
             border: 2px solid var(--primary);
             color: white;
-            box-shadow: none;
+            box-shadow: 0 0 20px rgba(255, 212, 0, 0.2);
+        }
+
+        .btn.secondary::before {
+            background: rgba(255, 212, 0, 0.1);
         }
 
         .btn.secondary:hover {
-            background: rgba(255, 215, 0, 0.1);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            background: rgba(255, 212, 0, 0.15);
+            box-shadow: 0 12px 40px rgba(255, 212, 0, 0.3);
+            border-color: var(--primary-light);
+        }
+
+        /* ===== SECTION DIVIDER ===== */
+        .section-divider {
+            position: relative;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), transparent);
+        }
+
+        .divider-line {
+            width: 300px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            position: relative;
+        }
+
+        .divider-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 212, 0, 0.5);
         }
 
         /* ===== SECTIONS ===== */
@@ -316,7 +569,7 @@
             display: block;
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
             margin: 15px auto 0;
             border-radius: 2px;
         }
@@ -409,7 +662,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(255, 212, 0, 0.1) 0%, transparent 100%);
             z-index: 1;
         }
 
@@ -450,7 +703,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
@@ -462,7 +715,7 @@
 
         .card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(255, 212, 0, 0.2);
             border-color: var(--primary);
         }
 
@@ -528,7 +781,7 @@
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--text-dark);
             border-color: var(--primary);
             transform: scale(1.05);
@@ -566,7 +819,7 @@
         .portfolio-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(255, 212, 0, 0.95) 0%, rgba(17, 17, 17, 0.95) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -628,8 +881,8 @@
 
         .step:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            box-shadow: 0 10px 30px rgba(255, 212, 0, 0.3);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--secondary);
         }
 
@@ -641,7 +894,7 @@
             transform: translateX(-50%);
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -688,7 +941,7 @@
         .stat-number {
             font-size: 42px;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -732,15 +985,15 @@
             display: flex;
             gap: 20px;
             padding: 20px;
-            background: rgba(255, 215, 0, 0.08);
+            background: rgba(255, 212, 0, 0.08);
             border-radius: 10px;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 212, 0, 0.2);
         }
 
         .contact-item:hover {
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(255, 212, 0, 0.15);
             transform: translateX(10px);
             border-color: var(--primary);
         }
@@ -763,7 +1016,7 @@
         }
 
         .contact-phone-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--secondary);
             border: none;
             padding: 12px 20px;
@@ -778,7 +1031,7 @@
 
         .contact-phone-btn:hover {
             transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 212, 0, 0.3);
         }
 
         .contact-form {
@@ -803,9 +1056,9 @@
             width: 100%;
             padding: 14px;
             margin-bottom: 15px;
-            border: 2px solid rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 212, 0, 0.2);
             border-radius: 8px;
-            background: rgba(255, 215, 0, 0.05);
+            background: rgba(255, 212, 0, 0.05);
             color: white;
             font-family: 'Noto Sans KR', sans-serif;
             transition: all 0.3s ease;
@@ -822,13 +1075,13 @@
         .contact-form select:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(255, 215, 0, 0.1);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            background: rgba(255, 212, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 212, 0, 0.3);
         }
 
         .contact-form button {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--secondary);
             border: none;
             padding: 16px 30px;
@@ -837,12 +1090,12 @@
             font-weight: 600;
             font-size: 16px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 212, 0, 0.3);
         }
 
         .contact-form button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(255, 212, 0, 0.5);
         }
 
         /* ===== FLOATING BUTTONS ===== */
@@ -874,7 +1127,7 @@
         .floating-btn:nth-child(2) { animation-delay: 0.1s, 0.2s; }
 
         .floating-btn.phone {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--secondary);
         }
 
@@ -935,7 +1188,7 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            border-top: 1px solid rgba(255, 212, 0, 0.2);
             padding-top: 30px;
             text-align: center;
             font-size: 13px;
@@ -976,7 +1229,7 @@
 
             nav a {
                 padding: 15px;
-                border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+                border-bottom: 1px solid rgba(255, 212, 0, 0.1);
             }
 
             .mobile-menu-btn {
@@ -1003,6 +1256,13 @@
 
             .btn {
                 width: 100%;
+            }
+
+            .shape-circle-1,
+            .shape-circle-2,
+            .shape-square,
+            .shape-diamond {
+                display: none;
             }
 
             .section {
@@ -1124,13 +1384,12 @@
                 right: 15px;
                 gap: 10px;
             }
-        }
 
-        /* ===== LOADING ANIMATION ===== */
-        .loading {
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
+            .hero-line,
+            .hero-v-line,
+            .accent-line {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -1152,17 +1411,45 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
+        <!-- Background geometric elements -->
+        <div class="hero-geometric">
+            <div class="hero-line hero-line-1"></div>
+            <div class="hero-line hero-line-2"></div>
+            <div class="hero-line hero-line-3"></div>
+            <div class="hero-v-line hero-v-line-1"></div>
+            <div class="hero-v-line hero-v-line-2"></div>
+        </div>
+
+        <!-- Floating shapes -->
+        <div class="floating-shape shape-circle-1"></div>
+        <div class="floating-shape shape-circle-2"></div>
+        <div class="floating-shape shape-square"></div>
+        <div class="floating-shape shape-diamond"></div>
+
+        <!-- Accent lines -->
+        <div class="accent-line accent-line-1"></div>
+        <div class="accent-line accent-line-2"></div>
+
+        <!-- Hero content -->
         <div class="hero-content">
+            <div class="hero-badge">✨ 제주 최고의 광고 전문기업</div>
             <h1>
-                <span class="highlight">제주 간판·옥외광고 전문기업</span>
+                <span class="highlight">제주 간판·옥외광고<br>전문기업</span>
             </h1>
-            <p>기획부터 디자인, 제작, 시공까지 원스톱 광고 솔루션</p>
+            <p>기획 · 디자인 · 제작 · 시공까지 원스톱 광고 솔루션</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn">💬 무료 견적 문의</a>
-                <a href="#portfolio" class="btn secondary">📸 시공 사례 보기</a>
+                <a href="#contact" class="btn"><span>💬 무료 견적 문의</span></a>
+                <a href="#portfolio" class="btn secondary"><span>📸 시공 사례 보기</span></a>
             </div>
         </div>
     </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider">
+        <div class="divider-line">
+            <div class="divider-dot"></div>
+        </div>
+    </div>
 
     <!-- ABOUT SECTION -->
     <section id="about" class="section">
@@ -1462,7 +1749,7 @@
                     <textarea id="message" name="message" rows="5" placeholder="문의 내용을 자세히 입력해주세요" required></textarea>
                 </div>
 
-                <button type="submit" class="btn">🚀 무료 견적 문의하기</button>
+                <button type="submit" class="btn"><span>🚀 무료 견적 문의하기</span></button>
             </form>
         </div>
     </section>
@@ -1573,12 +1860,12 @@
             // Show success message
             const submitBtn = contactForm.querySelector('button');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = '✓ 문의가 접수되었습니다!';
+            submitBtn.innerHTML = '<span>✓ 문의가 접수되었습니다!</span>';
             submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
 
             // Reset after 3 seconds
             setTimeout(() => {
-                submitBtn.textContent = originalText;
+                submitBtn.innerHTML = originalText;
                 submitBtn.style.background = '';
                 contactForm.reset();
             }, 3000);
