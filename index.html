@@ -583,14 +583,12 @@
     transition: all 0.3s ease;
 }
 
-.portfolio-item:hover .portfolio-arrow {
-    transform: translateX(8px);
-    opacity: 1;
-}
-.portfolio-arrow {
-    margin-top: 25px;
+.portfolio-overlay::after {
+    content: "→";
     width: 48px;
     height: 48px;
+    margin-top: 25px;
+
     border: 1px solid rgba(255,255,255,0.4);
     border-radius: 50%;
 
@@ -605,7 +603,7 @@
     transition: all 0.35s ease;
 }
 
-.portfolio-item:hover .portfolio-arrow {
+.portfolio-item:hover .portfolio-overlay::after {
     transform: translateX(8px);
     border-color: #FFD400;
     background: rgba(255,212,0,0.15);
@@ -698,7 +696,6 @@
                <h3>후렉스간판</h3>
                <p>넓은 면적에 최적화된 경제적인 광고 간판</p>
 
-               <div class="portfolio-arrow">→</div>
     </div>
 </div>
 
