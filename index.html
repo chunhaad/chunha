@@ -584,24 +584,41 @@
 }
 
 .portfolio-overlay::after {
-    content: "시공사례 보기 →";
+    content: "시공사례 보기";
 
-    margin-top: 24px;
+    margin-top: 28px;
 
     color: #FFD400;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
 
-    opacity: 0;
-    transform: translateY(10px);
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 212, 0, 0.4);
 
-    transition: all 0.35s ease;
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: all 0.45s ease;
 }
 
 .portfolio-item:hover .portfolio-overlay::after {
     opacity: 1;
     transform: translateY(0);
+    letter-spacing: 2px;
+    border-bottom-color: #FFD400;
+}
+        .portfolio-overlay h3,
+.portfolio-overlay p {
+    transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay h3 {
+    transform: translateY(-6px);
+}
+
+.portfolio-item:hover .portfolio-overlay p {
+    transform: translateY(-3px);
 }
     </style>
 </head>
