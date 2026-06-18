@@ -932,44 +932,71 @@ cursor:pointer;
 
 function openGallery(type){
 
-    let html = `
-        <div class="gallery-grid">
-    `;
+    let html = '';
 
     for(let i=1;i<=30;i++){
 
         html += `
+        <div class="portfolio-item">
             <img src="${type}${i}.jpg"
                  onclick="openLightbox(this.src)">
+        </div>
         `;
 
     }
 
-    html += `</div>`;
+    document.getElementById('portfolioGrid').innerHTML = html;
 
-    document.getElementById('gallery-area').innerHTML = html;
+}
 
-    document.getElementById('gallery-area')
-    .scrollIntoView({
-        behavior:'smooth'
-    });
+function showMain(){
+
+document.getElementById('portfolioGrid').innerHTML = `
+
+<div class="portfolio-item" onclick="openGallery('channel')">
+<img src="work1.jpg">
+</div>
+
+<div class="portfolio-item" onclick="openGallery('flex')">
+<img src="work2.jpg">
+</div>
+
+<div class="portfolio-item" onclick="openGallery('skasi')">
+<img src="work3.jpg">
+</div>
+
+<div class="portfolio-item" onclick="openGallery('tinting')">
+<img src="work4.jpg">
+</div>
+
+<div class="portfolio-item" onclick="openGallery('indoor')">
+<img src="work5.jpg">
+</div>
+
+<div class="portfolio-item" onclick="openGallery('banner')">
+<img src="work6.jpg">
+</div>
+
+`;
 
 }
 
 function openLightbox(src){
 
-    document.getElementById('lightbox').style.display='flex';
-
-    document.getElementById('lightboxImg').src = src;
+document.getElementById('lightbox').style.display='flex';
+document.getElementById('lightboxImg').src = src;
 
 }
 
 document.getElementById('closeLightbox')
 .addEventListener('click',()=>{
 
-    document.getElementById('lightbox').style.display='none';
+document.getElementById('lightbox').style.display='none';
 
 });
+
+document.querySelector('[data-filter="all"]')
+.onclick = showMain;
 
 </script>
 </div>    
