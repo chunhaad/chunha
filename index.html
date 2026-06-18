@@ -677,6 +677,15 @@ font-size:50px;
 color:white;
 cursor:pointer;
 }    
+        #closeLightbox{
+position:absolute;
+top:20px;
+right:30px;
+font-size:50px;
+color:white;
+cursor:pointer;
+}
+</style>
     </style>
 </head>
 
@@ -748,7 +757,7 @@ cursor:pointer;
         </div>
 <div class="portfolio-grid">
 
-    <div class="portfolio-item" data-category="led">
+    <div class="portfolio-item" onclick="openGallery('channel')">
         <img src="work1.jpg" alt="채널간판">
         <div class="portfolio-content">
             <h3>채널간판</h3>
@@ -756,7 +765,7 @@ cursor:pointer;
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="wall">
+    <div class="portfolio-item" onclick="openGallery('flex')">
         <img src="work2.jpg" alt="후렉스간판">
         <div class="portfolio-content">
             <h3>후렉스간판</h3>
@@ -764,7 +773,7 @@ cursor:pointer;
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="protrusion">
+    <div class="portfolio-item" onclick="openGallery('skasi')">
         <img src="work3.jpg" alt="고무스카시">
         <div class="portfolio-content">
             <h3>고무스카시</h3>
@@ -772,7 +781,7 @@ cursor:pointer;
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="banner">
+    <div class="portfolio-item" onclick="openGallery('tinting')">
         <img src="work4.jpg" alt="유리썬팅">
         <div class="portfolio-content">
             <h3>유리썬팅</h3>
@@ -780,7 +789,7 @@ cursor:pointer;
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="printing">
+    <div class="portfolio-item" onclick="openGallery('indoor')">
         <img src="work5.jpg" alt="실내사인">
         <div class="portfolio-content">
             <h3>실내사인</h3>
@@ -788,15 +797,18 @@ cursor:pointer;
         </div>
     </div>
 
-    <div class="portfolio-item" data-category="sheet">
+    <div class="portfolio-item" onclick="openGallery('banner')">
         <img src="work6.jpg" alt="현수막">
         <div class="portfolio-content">
             <h3>현수막</h3>
             <p>행사·홍보용 현수막 제작</p>
         </div>
     </div>
-
+    
+<div id="gallery-area"></div>
+    
 </div>
+        
     </section>
 
     <!-- CONTACT SECTION -->
@@ -917,39 +929,50 @@ cursor:pointer;
     </div>
 
     <script>
-        const lightbox =
-document.getElementById('lightbox');
+<script>
 
-const lightboxImg =
-document.getElementById('lightboxImg');
+function openGallery(type){
 
-document.querySelectorAll('.portfolio-item img')
-.forEach(img=>{
+    let html = `
+        <div class="gallery-grid">
+    `;
 
-img.addEventListener('click',()=>{
+    for(let i=1;i<=30;i++){
 
-lightbox.style.display='flex';
+        html += `
+            <img src="${type}${i}.jpg"
+                 onclick="openLightbox(this.src)">
+        `;
 
-lightboxImg.src = img.src;
+    }
 
-});
+    html += `</div>`;
 
-});
+    document.getElementById('gallery-area').innerHTML = html;
+
+    document.getElementById('gallery-area')
+    .scrollIntoView({
+        behavior:'smooth'
+    });
+
+}
+
+function openLightbox(src){
+
+    document.getElementById('lightbox').style.display='flex';
+
+    document.getElementById('lightboxImg').src = src;
+
+}
 
 document.getElementById('closeLightbox')
 .addEventListener('click',()=>{
 
-lightbox.style.display='none';
+    document.getElementById('lightbox').style.display='none';
 
 });
 
 </script>
-<div id="lightbox">
-
-<span id="closeLightbox">&times;</span>
-
-<img id="lightboxImg">
-
 </div>    
 </body>
 </html>
