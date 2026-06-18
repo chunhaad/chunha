@@ -556,8 +556,31 @@
             .section { padding: 60px 5%; }
             .section-title { font-size: 28px; margin-bottom: 30px; }
             #portfolio { padding: 60px 5%; }
-            .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-            .portfolio-item { height: 380px; }
+            .portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.portfolio-item{
+border:2px solid #FFD400;
+border-radius:20px;
+overflow:hidden;
+cursor:pointer;
+transition:.3s;
+}
+
+.portfolio-item:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.portfolio-item img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+display:block;
+}
             .portfolio-overlay h3 { font-size: 24px; }
             .portfolio-overlay p { font-size: 14px; }
             .services { grid-template-columns: 1fr; }
@@ -608,23 +631,35 @@
     opacity: 1;
     transform: translateY(0);
 }
-.work-gallery{
-display:none;
-padding:80px 8%;
-background:#f8f8f8;
-}
-
-.work-gallery h2{
-text-align:center;
-margin-bottom:40px;
-font-size:42px;
-}
-
+        
 .gallery-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:20px;
-}        
+}    
+    #lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+z-index:9999;
+justify-content:center;
+align-items:center;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
+#closeLightbox{
+position:absolute;
+top:20px;
+right:30px;
+font-size:50px;
+color:white;
+cursor:pointer;
+}    
     </style>
 </head>
 
@@ -695,68 +730,80 @@ gap:20px;
             <button class="filter-btn" data-filter="sheet">현수막</button>
         </div>
 
-        <div class="portfolio-grid">
-            <!-- 1. LED 간판 (깃허브의 'led sign.png' 파일명 연동 완료) -->
-            <div class="portfolio-item" data-category="led" onclick="document.querySelector('[data-filter=led]').click()">
-                <img src="work1.jpg" alt="LED 간판" loading="lazy">
-                <div class="portfolio-overlay">
-                    <h3>채널 간판</h3>
-                    <p>주·야간 시인성이 뛰어난 프리미엄 간판</p>
-                </div>
-            </div>
+    <div class="portfolio-grid">
 
-            <!-- 2. 후렉스간판 -->
-            <div class="portfolio-item" data-category="wall" onclick="document.querySelector('[data-filter=wall]').click()">
-               <img src="work2.jpg" alt="후렉스간판 시공 사례" loading="lazy">
+<!-- 채널간판 -->
 
-               <div class="portfolio-overlay">
-               <h3>후렉스간판</h3>
-               <p>대형 외벽 광고에 최적화된 고효율 사인</p>
-
-    </div>
+<div class="portfolio-item" data-category="led">
+<img src="images/channel1.jpg">
 </div>
 
-            <!-- 3. 스카시간판 -->
-            <div class="portfolio-item" data-category="banner">
-                <img src="work3.jpg" alt="현수막 디자인 제작" loading="lazy">
-                <div class="portfolio-overlay">
-                    <h3>스카시간판</h3>
-                    <p>실내외 적용이 가능한 경량 입체 사인</p>
-                </div>
-            </div>
+<div class="portfolio-item" data-category="led">
+<img src="images/channel2.jpg">
+</div>
 
-            <!-- 4. 유리썬팅 -->
-            <div class="portfolio-item" data-category="led">
-                <img src="work4.jpg" alt="유리썬팅 시공 사례" loading="lazy">
-                <div class="portfolio-overlay">
-                    <h3>유리썬팅</h3>
-                    <p>매장 유리창 광고 시트 및 썬팅 제작</p>
-                </div>
-            </div>
+<div class="portfolio-item" data-category="led">
+<img src="images/channel3.jpg">
+</div>
 
-            <!-- 5. 실내사인 -->
-            <div class="portfolio-item" data-category="printing">
-                <img src="work5.jpg" alt="실사출력 제작 포트폴리오" loading="lazy">
-                <div class="portfolio-overlay">
-                    <h3>실내사인</h3>
-                    <p>매장 내부 사인물 및 안내표지 제작</p>
-                </div>
-            </div>
+<!-- 계속 -->
 
-            <!-- 6. 현수막 -->
-            <div class="portfolio-item" data-category="protrusion">
-                <img src="work6.jpg" alt="현수막 시공 사례" loading="lazy">
-                <div class="portfolio-overlay">
-                    <h3>현수막</h3>
-                    <p>행사부터 매장 홍보까지 맞춤 제작</p>
-                </div>
-            </div>
-        </div>
+<div class="portfolio-item" data-category="led">
+<img src="images/channel30.jpg">
+</div>
+
+
+<!-- 후렉스간판 -->
+
+<div class="portfolio-item" data-category="wall">
+<img src="images/flex1.jpg">
+</div>
+
+<div class="portfolio-item" data-category="wall">
+<img src="images/flex2.jpg">
+</div>
+
+<!-- 계속 -->
+
+<div class="portfolio-item" data-category="wall">
+<img src="images/flex30.jpg">
+</div>
+
+
+<!-- 고무스카시 -->
+
+<div class="portfolio-item" data-category="protrusion">
+<img src="images/skasi1.jpg">
+</div>
+
+...
+
+<!-- 유리썬팅 -->
+
+<div class="portfolio-item" data-category="banner">
+<img src="images/tint1.jpg">
+</div>
+
+...
+
+<!-- 실내사인 -->
+
+<div class="portfolio-item" data-category="printing">
+<img src="images/interior1.jpg">
+</div>
+
+...
+
+<!-- 현수막 -->
+
+<div class="portfolio-item" data-category="sheet">
+<img src="images/banner1.jpg">
+</div>
+
+...
+
+</div>
     </section>
-<section id="detailGallery" class="work-gallery">
-    <h2 id="galleryTitle">채널간판 시공사례</h2>
-    <div id="galleryGrid" class="gallery-grid"></div>
-</section>
     
     <!-- SERVICES SECTION -->
     <section id="service" class="section">
@@ -952,126 +999,39 @@ gap:20px;
     </div>
 
     <script>
+        const lightbox =
+document.getElementById('lightbox');
 
-const galleryData = {
+const lightboxImg =
+document.getElementById('lightboxImg');
 
-led: [
-'channel1.jpg','channel2.jpg','channel3.jpg','channel4.jpg','channel5.jpg',
-'channel6.jpg','channel7.jpg','channel8.jpg','channel9.jpg','channel10.jpg',
-'channel11.jpg','channel12.jpg','channel13.jpg','channel14.jpg','channel15.jpg',
-'channel16.jpg','channel17.jpg','channel18.jpg','channel19.jpg','channel20.jpg',
-'channel21.jpg','channel22.jpg','channel23.jpg','channel24.jpg','channel25.jpg',
-'channel26.jpg','channel27.jpg','channel28.jpg','channel29.jpg','channel30.jpg'
-],
+document.querySelectorAll('.portfolio-item img')
+.forEach(img=>{
 
-wall: [
-'flex1.jpg','flex2.jpg','flex3.jpg','flex4.jpg','flex5.jpg'
-],
+img.addEventListener('click',()=>{
 
-protrusion: [
-'skasi1.jpg','skasi2.jpg','skasi3.jpg','skasi4.jpg','skasi5.jpg'
-],
+lightbox.style.display='flex';
 
-banner: [
-'tint1.jpg','tint2.jpg','tint3.jpg','tint4.jpg','tint5.jpg'
-],
-
-printing: [
-'interior1.jpg','interior2.jpg','interior3.jpg','interior4.jpg','interior5.jpg'
-],
-
-sheet: [
-'banner1.jpg','banner2.jpg','banner3.jpg','banner4.jpg','banner5.jpg'
-]
-
-};
-
-const categoryNames = {
-led:'채널간판',
-wall:'후렉스간판',
-protrusion:'고무스카시간판',
-banner:'유리썬팅',
-printing:'실내사인',
-sheet:'현수막'
-};
-
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-function showGallery(category){
-
-const gallery = document.getElementById('detailGallery');
-const title = document.getElementById('galleryTitle');
-const grid = document.getElementById('galleryGrid');
-
-title.innerText = categoryNames[category] + ' 시공사례';
-
-grid.innerHTML = '';
-
-galleryData[category].forEach(img=>{
-
-grid.innerHTML += `
-<img src="${img}" style="
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:15px;
-margin-bottom:20px;
-cursor:pointer;
-">
-`;
-
-});
-
-gallery.style.display='block';
-
-gallery.scrollIntoView({
-behavior:'smooth'
-});
-
-}
-
-filterBtns.forEach(btn => {
-
-btn.addEventListener('click', () => {
-
-filterBtns.forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-
-const filterValue = btn.dataset.filter;
-
-portfolioItems.forEach(item => {
-
-if(filterValue==='all'){
-item.style.display='block';
-}else{
-item.style.display =
-item.dataset.category===filterValue
-? 'block'
-: 'none';
-}
-
-});
-
-if(filterValue!=='all'){
-showGallery(filterValue);
-}
+lightboxImg.src = img.src;
 
 });
 
 });
 
-portfolioItems.forEach(item=>{
+document.getElementById('closeLightbox')
+.addEventListener('click',()=>{
 
-item.addEventListener('click',()=>{
-
-showGallery(item.dataset.category);
-
-});
+lightbox.style.display='none';
 
 });
 
 </script>
-    
+<div id="lightbox">
+
+<span id="closeLightbox">&times;</span>
+
+<img id="lightboxImg">
+
+</div>    
 </body>
 </html>
