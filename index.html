@@ -556,7 +556,24 @@
             .section { padding: 60px 5%; }
             .section-title { font-size: 28px; margin-bottom: 30px; }
             #portfolio { padding: 60px 5%; }
-            .portfolio-grid{
+            .portfolio-grid{.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:40px;
+}
+
+.portfolio-item{
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.portfolio-item img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    cursor:pointer;
+}
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
@@ -729,6 +746,33 @@ cursor:pointer;
             <button class="filter-btn" data-filter="printing">실내사인</button>
             <button class="filter-btn" data-filter="sheet">현수막</button>
         </div>
+<div class="portfolio-grid">
+
+    <div class="portfolio-item" data-category="led">
+        <img src="work1.jpg" alt="">
+    </div>
+
+    <div class="portfolio-item" data-category="wall">
+        <img src="work2.jpg" alt="">
+    </div>
+
+    <div class="portfolio-item" data-category="protrusion">
+        <img src="work3.jpg" alt="">
+    </div>
+
+    <div class="portfolio-item" data-category="banner">
+        <img src="work4.jpg" alt="">
+    </div>
+
+    <div class="portfolio-item" data-category="printing">
+        <img src="work5.jpg" alt="">
+    </div>
+
+    <div class="portfolio-item" data-category="sheet">
+        <img src="work6.jpg" alt="">
+    </div>
+
+</div>
     </section>
 
     <!-- CONTACT SECTION -->
