@@ -608,6 +608,23 @@
     opacity: 1;
     transform: translateY(0);
 }
+.work-gallery{
+display:none;
+padding:80px 8%;
+background:#f8f8f8;
+}
+
+.work-gallery h2{
+text-align:center;
+margin-bottom:40px;
+font-size:42px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}        
     </style>
 </head>
 
@@ -736,7 +753,11 @@
             </div>
         </div>
     </section>
-
+<section id="detailGallery" class="work-gallery">
+    <h2 id="galleryTitle">채널간판 시공사례</h2>
+    <div id="galleryGrid" class="gallery-grid"></div>
+</section>
+    
     <!-- SERVICES SECTION -->
     <section id="service" class="section">
         <h2 class="section-title">서비스 안내</h2>
@@ -931,49 +952,126 @@
     </div>
 
     <script>
-        // Portfolio filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+const galleryData = {
 
-                const filterValue = btn.getAttribute('data-filter');
+led: [
+'channel1.jpg','channel2.jpg','channel3.jpg','channel4.jpg','channel5.jpg',
+'channel6.jpg','channel7.jpg','channel8.jpg','channel9.jpg','channel10.jpg',
+'channel11.jpg','channel12.jpg','channel13.jpg','channel14.jpg','channel15.jpg',
+'channel16.jpg','channel17.jpg','channel18.jpg','channel19.jpg','channel20.jpg',
+'channel21.jpg','channel22.jpg','channel23.jpg','channel24.jpg','channel25.jpg',
+'channel26.jpg','channel27.jpg','channel28.jpg','channel29.jpg','channel30.jpg'
+],
 
-                portfolioItems.forEach(item => {
-                    if (filterValue === 'all') {
-                        item.style.display = 'block';
-                    } else {
-                        if (item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    }
-                });
-            });
-        });
+wall: [
+'flex1.jpg','flex2.jpg','flex3.jpg','flex4.jpg','flex5.jpg'
+],
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
+protrusion: [
+'skasi1.jpg','skasi2.jpg','skasi3.jpg','skasi4.jpg','skasi5.jpg'
+],
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.style.display = mainNav.style.display === 'flex' ? 'none' : 'flex';
-        });
+banner: [
+'tint1.jpg','tint2.jpg','tint3.jpg','tint4.jpg','tint5.jpg'
+],
 
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            console.log('Form submitted:', data);
-            alert('문의가 접수되었습니다. 빠른 시간 내에 연락드리겠습니다.');
-            contactForm.reset();
-        });
-    </script>
+printing: [
+'interior1.jpg','interior2.jpg','interior3.jpg','interior4.jpg','interior5.jpg'
+],
+
+sheet: [
+'banner1.jpg','banner2.jpg','banner3.jpg','banner4.jpg','banner5.jpg'
+]
+
+};
+
+const categoryNames = {
+led:'채널간판',
+wall:'후렉스간판',
+protrusion:'고무스카시간판',
+banner:'유리썬팅',
+printing:'실내사인',
+sheet:'현수막'
+};
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+function showGallery(category){
+
+const gallery = document.getElementById('detailGallery');
+const title = document.getElementById('galleryTitle');
+const grid = document.getElementById('galleryGrid');
+
+title.innerText = categoryNames[category] + ' 시공사례';
+
+grid.innerHTML = '';
+
+galleryData[category].forEach(img=>{
+
+grid.innerHTML += `
+<img src="${img}" style="
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:20px;
+cursor:pointer;
+">
+`;
+
+});
+
+gallery.style.display='block';
+
+gallery.scrollIntoView({
+behavior:'smooth'
+});
+
+}
+
+filterBtns.forEach(btn => {
+
+btn.addEventListener('click', () => {
+
+filterBtns.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+
+const filterValue = btn.dataset.filter;
+
+portfolioItems.forEach(item => {
+
+if(filterValue==='all'){
+item.style.display='block';
+}else{
+item.style.display =
+item.dataset.category===filterValue
+? 'block'
+: 'none';
+}
+
+});
+
+if(filterValue!=='all'){
+showGallery(filterValue);
+}
+
+});
+
+});
+
+portfolioItems.forEach(item=>{
+
+item.addEventListener('click',()=>{
+
+showGallery(item.dataset.category);
+
+});
+
+});
+
+</script>
+    
 </body>
 </html>
