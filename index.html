@@ -443,12 +443,50 @@
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .portfolio-item:hover img { transform: scale(1.15); }
 
-        /* 사진 중앙 오버레이 숨기기 */
+        /* 홈 화면 오버레이: 검정색 투명도 20% (rgba(0,0,0,0.2)) 및 흰색 글씨 노출 */
         .portfolio-overlay {
-            display: none !important;
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            transition: background 0.3s ease;
         }
 
-        /* 하단 캡션: 검정색 투명도 60%, 흰색 글씨 */
+        .portfolio-item:hover .portfolio-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .portfolio-overlay p {
+            font-size: 14px;
+            margin-bottom: 12px;
+            opacity: 0.95;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .portfolio-overlay .action-text {
+            font-size: 12px;
+            font-weight: 600;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* 상세 갤러리 페이지용 하단 캡션 (검정 60% 투명도) */
         .portfolio-caption {
             padding: 10px 12px;
             background: rgba(0, 0, 0, 0.6);
@@ -791,6 +829,7 @@
             30: "특수 대형 LED 채널간판"
         };
 
+        // 카테고리 클릭 시 상세 갤러리 열기
         function openGallery(type, page){
             let html = '';
             let start = (page - 1) * ITEMS_PER_PAGE + 1;
@@ -830,7 +869,7 @@
             paginationContainer.innerHTML = paginationHtml;
         }
 
-        // 홈("모든 작업물") 화면: 기존 원본 유지
+        // 홈("모든 작업물") 화면: 글씨와 오버레이가 들어간 6개 카드 구성
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
                 <div class="portfolio-card">
@@ -936,7 +975,7 @@
             });
         }
 
-        // 초기 화면 설정: 홈("모든 작업물") 카테고리를 기본으로 노출
+        // 초기 화면 설정: 홈("모든 작업물") 노출
         document.addEventListener('DOMContentLoaded', () => {
             showMain();
         });
