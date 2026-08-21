@@ -414,44 +414,58 @@
             gap: 20px; 
         }
 
+        /* 카드 오버레이 설정 */
         .portfolio-card {
-            display: flex;
-            flex-direction: column;
+            position: relative;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             border: 2px solid var(--primary);
-            background: transparent;
+            background: #000;
             transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .portfolio-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 15px 40px rgba(255, 212, 0, 0.25);
         }
-        
+
         .portfolio-item {
             position: relative;
             height: 250px; 
             overflow: hidden;
-            cursor: pointer;
         }
 
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        
+        .portfolio-card:hover .portfolio-item img { 
+            transform: scale(1.1); 
+        }
 
-        /* 사진 하단 한 줄 캡션 (투명 검정 85% + 흰색 글씨 적용) */
+        /* 사진 위로 겹쳐지는 20% 투명 검정 캡션 */
         .portfolio-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             padding: 10px 12px;
-            background: rgba(17, 17, 17, 0.85); /* 시인성이 뛰어난 투명 검정 */
+            background: rgba(0, 0, 0, 0.2); /* 은은하게 투명한 20% 검정 오버레이 */
             backdrop-filter: blur(4px);
-            color: #ffffff; /* 깔끔한 흰색 글씨 */
+            color: #ffffff; /* 흰색 글자 */
             font-size: 13px;
             font-weight: 600;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            z-index: 2;
+            pointer-events: none;
         }
 
         /* ===== PAGINATION ===== */
@@ -797,8 +811,8 @@
                 let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
 
                 html += `
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
+                <div class="portfolio-card" onclick="openLightbox('${imgSrc}', '${caption}')">
+                    <div class="portfolio-item">
                         <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
                     </div>
                     <div class="portfolio-caption">${caption}</div>
@@ -828,35 +842,41 @@
 
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('channel', 1)">
+                <div class="portfolio-card" onclick="openGallery('channel', 1)">
+                    <div class="portfolio-item">
                         <img src="work1.jpg" alt="채널간판">
                     </div>
+                    <div class="portfolio-caption">채널간판</div>
                 </div>
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('flex', 1)">
+                <div class="portfolio-card" onclick="openGallery('flex', 1)">
+                    <div class="portfolio-item">
                         <img src="work2.jpg" alt="후렉스간판">
                     </div>
+                    <div class="portfolio-caption">후렉스간판</div>
                 </div>
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('skasi', 1)">
+                <div class="portfolio-card" onclick="openGallery('skasi', 1)">
+                    <div class="portfolio-item">
                         <img src="work3.jpg" alt="고무스카시">
                     </div>
+                    <div class="portfolio-caption">고무스카시</div>
                 </div>
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('tinting', 1)">
+                <div class="portfolio-card" onclick="openGallery('tinting', 1)">
+                    <div class="portfolio-item">
                         <img src="work4.jpg" alt="유리썬팅">
                     </div>
+                    <div class="portfolio-caption">유리썬팅</div>
                 </div>
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('indoor', 1)">
+                <div class="portfolio-card" onclick="openGallery('indoor', 1)">
+                    <div class="portfolio-item">
                         <img src="work5.jpg" alt="실내사인">
                     </div>
+                    <div class="portfolio-caption">실내사인</div>
                 </div>
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('banner', 1)">
+                <div class="portfolio-card" onclick="openGallery('banner', 1)">
+                    <div class="portfolio-item">
                         <img src="work6.jpg" alt="현수막">
                     </div>
+                    <div class="portfolio-caption">현수막</div>
                 </div>
             `;
             document.getElementById('portfolioPagination').innerHTML = ''; 
