@@ -448,7 +448,6 @@
         
         .portfolio-item:hover img { transform: scale(1.15); }
 
-        /* 메인 오버레이 (마우스 올렸을 때 전체 커버) */
         .portfolio-overlay {
             position: absolute;
             inset: 0;
@@ -493,14 +492,14 @@
             border-radius: 20px;
         }
 
-        /* 상세 갤러리 하단 반투명 검정 캡션 (사진 위에 겹치도록 설정) */
+        /* 상세 갤러리 하단 반투명 검정 캡션 (전체 카테고리 공통 적용) */
         .portfolio-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             padding: 12px 15px;
-            background: rgba(0, 0, 0, 0.55); /* 검정색에 55% 투명도 적용 */
+            background: rgba(0, 0, 0, 0.55);
             color: #ffffff;
             font-size: 14px;
             font-weight: 600;
@@ -508,7 +507,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            backdrop-filter: blur(2px); /* 약간의 블러 효과로 글씨 시인성 확보 */
+            backdrop-filter: blur(2px);
             z-index: 1;
         }
 
@@ -714,8 +713,8 @@
             <button class="filter-btn active" data-filter="all">모든 작업물</button>
             <button class="filter-btn" data-filter="channel">채널간판</button>
             <button class="filter-btn" data-filter="flex">후렉스간판</button>
-            <button class="filter-btn" data-filter="skasi">고무스카시</button>
-            <button class="filter-btn" data-filter="tinting">유리썬팅</button>
+            <button class="filter-btn" data-filter="rubber">고무스카시</button>
+            <button class="filter-btn" data-filter="window">유리썬팅</button>
             <button class="filter-btn" data-filter="indoor">실내사인</button>
             <button class="filter-btn" data-filter="banner">현수막</button>
         </div>
@@ -806,25 +805,36 @@
 
     <script>
         const ITEMS_PER_PAGE = 15; 
-        const TOTAL_ITEMS = 30;    
+        const TOTAL_ITEMS = 30; // 각 카테고리당 30장씩 적용    
 
+        // 카테고리별 한글 명칭 정의
+        const categoryNames = {
+            'channel': '채널간판',
+            'flex': '후렉스간판',
+            'rubber': '고무스카시',
+            'window': '유리썬팅',
+            'indoor': '실내사인',
+            'banner': '현수막'
+        };
+
+        // 채널간판 전용 커스텀 제목 (필요 시 수정 가능)
         const channelTitles = {
-            1: "치킨플러스",
-            2: "귀뚜라미보일러",
-            3: "오태식해바라기치킨",
-            4: "가마치통닭-베라체점/연동점/도남점/외도점/일도점/동홍점/중문점 등",
-            5: "해맑은동물병원",
-            6: "진성상회",
-            7: "한수풀도서관 ",
-            8: "엑트몬",
-            9: "메고지고",
-            10: "푸른동물병원",
-            11: "OK신용정보",
-            12: "별미해장국",
-            13: "평화반점",
-            14: "다큐",
-            15: "미란다커피",
-            16: "브레인코칭&감성연구소",
+            1: "LED 입체 채널간판 시공",
+            2: "심플 전면 LED 채널간판",
+            3: "고급 아크릴 LED 채널간판",
+            4: "돌출형 LED 측면간판",
+            5: "후광 조명 LED 채널간판",
+            6: "대형 매장 LED 전면간판",
+            7: "스마트 스타일 LED 채널간판",
+            8: "카페 감성 후광 채널간판",
+            9: "입체 문자 LED 간판 제작",
+            10: "프랜차이즈 매장 간판 시공",
+            11: "모던 스타일 전면 채널간판",
+            12: "야간 시인성 우수 LED간판",
+            13: "제주 상가 LED 채널간판",
+            14: "고급 레스토랑 조명간판",
+            15: "알루미늄 LED 채널간판",
+            16: "뷰티숍 핑크 LED 채널간판",
             17: "약국/병원 LED 타워간판",
             18: "학원/교육기관 전면간판",
             19: "빈티지 골드 스틸 채널간판",
@@ -847,8 +857,16 @@
             let end = Math.min(page * ITEMS_PER_PAGE, TOTAL_ITEMS);
 
             for(let i = start; i <= end; i++){
-                let imgSrc = `${type}${i}.jpg`;
-                let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
+                let imgSrc = `${type}${i}.jpg`; // channel1.jpg, flex1.jpg, rubber1.jpg, window1.jpg, indoor1.jpg, banner1.jpg
+                
+                // 캡션 텍스트 생성
+                let caption = '';
+                if (type === 'channel' && channelTitles[i]) {
+                    caption = channelTitles[i];
+                } else {
+                    let catName = categoryNames[type] || '시공';
+                    caption = `${catName} 시공사례 ${i}`;
+                }
 
                 html += `
                 <div class="portfolio-card">
@@ -903,7 +921,7 @@
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('skasi', 1)">
+                    <div class="portfolio-item" onclick="openGallery('rubber', 1)">
                         <img src="work3.jpg" alt="고무스카시">
                         <div class="portfolio-overlay">
                             <h3>고무스카시</h3>
@@ -913,7 +931,7 @@
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openGallery('tinting', 1)">
+                    <div class="portfolio-item" onclick="openGallery('window', 1)">
                         <img src="work4.jpg" alt="유리썬팅">
                         <div class="portfolio-overlay">
                             <h3>유리썬팅</h3>
