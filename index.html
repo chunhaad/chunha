@@ -414,7 +414,7 @@
             gap: 20px; 
         }
 
-        /* 카드 오버레이 설정 */
+        /* 카드 오버레이 공통 스타일 */
         .portfolio-card {
             position: relative;
             border-radius: 12px;
@@ -448,16 +448,29 @@
             transform: scale(1.1); 
         }
 
-        /* 사진 위로 겹쳐지는 20% 투명 검정 캡션 */
+        /* 홈 화면 기본 캡션 박스 (원래대로 유지) */
+        .portfolio-info {
+            padding: 15px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .portfolio-info h3 {
+            font-size: 16px;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* 갤러리 상세 내부: 사진 위 20% 투명 검정 캡션 오버레이 */
         .portfolio-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
             padding: 10px 12px;
-            background: rgba(0, 0, 0, 0.2); /* 은은하게 투명한 20% 검정 오버레이 */
+            background: rgba(0, 0, 0, 0.2); /* 20% 투명 검정 오버레이 */
             backdrop-filter: blur(4px);
-            color: #ffffff; /* 흰색 글자 */
+            color: #ffffff;
             font-size: 13px;
             font-weight: 600;
             text-align: center;
@@ -801,6 +814,7 @@
             30: "특수 대형 LED 채널간판"
         };
 
+        /* 각 카테고리별 갤러리 (사진 위에 20% 투명 오버레이 적용) */
         function openGallery(type, page){
             let html = '';
             let start = (page - 1) * ITEMS_PER_PAGE + 1;
@@ -840,43 +854,56 @@
             paginationContainer.innerHTML = paginationHtml;
         }
 
+        /* 홈(초기 메인 화면): 원래 구조 및 카테고리 타이틀 완전 복원 */
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
                 <div class="portfolio-card" onclick="openGallery('channel', 1)">
                     <div class="portfolio-item">
                         <img src="work1.jpg" alt="채널간판">
                     </div>
-                    <div class="portfolio-caption">채널간판</div>
+                    <div class="portfolio-info">
+                        <h3>채널간판</h3>
+                    </div>
                 </div>
                 <div class="portfolio-card" onclick="openGallery('flex', 1)">
                     <div class="portfolio-item">
                         <img src="work2.jpg" alt="후렉스간판">
                     </div>
-                    <div class="portfolio-caption">후렉스간판</div>
+                    <div class="portfolio-info">
+                        <h3>후렉스간판</h3>
+                    </div>
                 </div>
                 <div class="portfolio-card" onclick="openGallery('skasi', 1)">
                     <div class="portfolio-item">
                         <img src="work3.jpg" alt="고무스카시">
                     </div>
-                    <div class="portfolio-caption">고무스카시</div>
+                    <div class="portfolio-info">
+                        <h3>고무스카시</h3>
+                    </div>
                 </div>
                 <div class="portfolio-card" onclick="openGallery('tinting', 1)">
                     <div class="portfolio-item">
                         <img src="work4.jpg" alt="유리썬팅">
                     </div>
-                    <div class="portfolio-caption">유리썬팅</div>
+                    <div class="portfolio-info">
+                        <h3>유리썬팅</h3>
+                    </div>
                 </div>
                 <div class="portfolio-card" onclick="openGallery('indoor', 1)">
                     <div class="portfolio-item">
                         <img src="work5.jpg" alt="실내사인">
                     </div>
-                    <div class="portfolio-caption">실내사인</div>
+                    <div class="portfolio-info">
+                        <h3>실내사인</h3>
+                    </div>
                 </div>
                 <div class="portfolio-card" onclick="openGallery('banner', 1)">
                     <div class="portfolio-item">
                         <img src="work6.jpg" alt="현수막">
                     </div>
-                    <div class="portfolio-caption">현수막</div>
+                    <div class="portfolio-info">
+                        <h3>현수막</h3>
+                    </div>
                 </div>
             `;
             document.getElementById('portfolioPagination').innerHTML = ''; 
