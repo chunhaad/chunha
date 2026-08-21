@@ -421,7 +421,7 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             border: 2px solid var(--primary);
-            background: #fff;
+            background: #111111;
             transition: all 0.4s ease;
         }
 
@@ -438,41 +438,21 @@
         }
 
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .portfolio-item:hover img { transform: scale(1.15); }
+        .portfolio-item:hover img { transform: scale(1.1); }
 
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            padding: 15px;
-        }
-        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        
-        .portfolio-overlay h3 { font-size: 18px; margin-bottom: 4px; font-weight: 700; color: white; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); }
-        .portfolio-overlay p { font-size: 13px; opacity: 0.95; font-weight: 500; margin-bottom: 8px; }
-        .portfolio-overlay .action-text { color: var(--primary); font-size: 12px; font-weight: 700; border: 1px solid var(--primary); padding: 3px 10px; border-radius: 4px; background: rgba(255, 212, 0, 0.1); }
-
-        /* 세련된 반투명 유리 느낌의 하단 문구 스타일 (Glassmorphism) */
+        /* 사진 하단 한 줄 캡션 (검정색 20% 투명도 적용) */
         .portfolio-caption {
             padding: 10px 12px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            color: #111111;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 600;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* ===== PAGINATION ===== */
@@ -821,11 +801,6 @@
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
                         <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
-                        <div class="portfolio-overlay">
-                            <h3>${caption}</h3>
-                            <p>상세보기</p>
-                            <span class="action-text">확대보기</span>
-                        </div>
                     </div>
                     <div class="portfolio-caption">${caption}</div>
                 </div>
@@ -852,67 +827,37 @@
             paginationContainer.innerHTML = paginationHtml;
         }
 
-        // 홈("모든 작업물") 화면: 하단 박스 및 글씨 완전히 삭제
+        // 홈("모든 작업물") 화면: 글씨와 캡션 상자 완전 삭제
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('channel', 1)">
                         <img src="work1.jpg" alt="채널간판">
-                        <div class="portfolio-overlay">
-                            <h3>채널간판</h3>
-                            <p>조명간판</p>
-                            <span class="action-text">시공사례 보기</span>
-                        </div>
                     </div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('flex', 1)">
                         <img src="work2.jpg" alt="후렉스간판">
-                        <div class="portfolio-overlay">
-                            <h3>후렉스간판</h3>
-                            <p>조명·비조명간판</p>
-                            <span class="action-text">시공사례 보기</span>
-                        </div>
                     </div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('skasi', 1)">
                         <img src="work3.jpg" alt="고무스카시">
-                        <div class="portfolio-overlay">
-                            <h3>고무스카시</h3>
-                            <p>비조명 입체간판</p>
-                            <span class="action-text">시공사례 보기</span>
-                        </div>
                     </div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('tinting', 1)">
                         <img src="work4.jpg" alt="유리썬팅">
-                        <div class="portfolio-overlay">
-                            <h3>유리썬팅</h3>
-                            <p>윈도우 실사출력</p>
-                            <span class="action-text">시공사례 보기</span>
-                        </div>
                     </div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('indoor', 1)">
                         <img src="work5.jpg" alt="실내사인">
-                        <div class="portfolio-overlay">
-                            <h3>실내사인</h3>
-                            <p>아크릴 및 내부사인</p>
-                            <span class="action-text">시공사례 보기</span>
-                        </div>
                     </div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('banner', 1)">
                         <img src="work6.jpg" alt="현수막">
-                        <div class="portfolio-overlay">
-                            <h3>현수막</h3>
-                            <p>거리 게릴라 및 대형현수막</p>
-                            <span class="action-text">시공사례 보기</span>
-                        </div>
                     </div>
                 </div>
             `;
@@ -958,7 +903,6 @@
             });
         }
 
-        // 초기 화면 설정: 홈("모든 작업물") 카테고리를 기본으로 노출
         document.addEventListener('DOMContentLoaded', () => {
             showMain();
         });
