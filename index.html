@@ -443,7 +443,7 @@
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .portfolio-item:hover img { transform: scale(1.15); }
 
-        /* 홈 화면 오버레이: 검정색 투명도 20% (rgba(0,0,0,0.2)) 및 흰색 글씨 노출 */
+        /* 홈 화면 오버레이: 평소에는 숨김(opacity: 0), 마우스 올렸을 때만 검정 20% 투명도로 글씨 서서히 나타남 */
         .portfolio-overlay {
             position: absolute;
             inset: 0;
@@ -455,11 +455,12 @@
             color: #ffffff;
             text-align: center;
             padding: 20px;
-            transition: background 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease, background 0.3s ease;
         }
 
         .portfolio-item:hover .portfolio-overlay {
-            background: rgba(0, 0, 0, 0.4);
+            opacity: 1;
         }
 
         .portfolio-overlay h3 {
@@ -829,7 +830,6 @@
             30: "특수 대형 LED 채널간판"
         };
 
-        // 카테고리 클릭 시 상세 갤러리 열기
         function openGallery(type, page){
             let html = '';
             let start = (page - 1) * ITEMS_PER_PAGE + 1;
@@ -869,7 +869,6 @@
             paginationContainer.innerHTML = paginationHtml;
         }
 
-        // 홈("모든 작업물") 화면: 글씨와 오버레이가 들어간 6개 카드 구성
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
                 <div class="portfolio-card">
@@ -975,7 +974,6 @@
             });
         }
 
-        // 초기 화면 설정: 홈("모든 작업물") 노출
         document.addEventListener('DOMContentLoaded', () => {
             showMain();
         });
