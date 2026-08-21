@@ -376,7 +376,6 @@
         .section-title { text-align: center; margin-bottom: 60px; font-size: 42px; font-weight: 700; color: var(--text-dark); position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--primary-light)); margin: 15px auto 0; border-radius: 2px; }
         
-        /* Portfolio 전용 명조체 스타일 */
         .section-title.serif-title {
             font-family: 'Song Myung', 'Georgia', serif;
             letter-spacing: 2px;
@@ -415,7 +414,6 @@
             gap: 20px; 
         }
 
-        /* 아이템 카드 및 하단 문구 스타일 추가/수정 */
         .portfolio-card {
             display: flex;
             flex-direction: column;
@@ -434,7 +432,7 @@
         
         .portfolio-item {
             position: relative;
-            height: 230px; 
+            height: 250px; 
             overflow: hidden;
             cursor: pointer;
         }
@@ -462,18 +460,19 @@
         .portfolio-overlay p { font-size: 13px; opacity: 0.95; font-weight: 500; margin-bottom: 8px; }
         .portfolio-overlay .action-text { color: var(--primary); font-size: 12px; font-weight: 700; border: 1px solid var(--primary); padding: 3px 10px; border-radius: 4px; background: rgba(255, 212, 0, 0.1); }
 
-        /* 사진 밑 한줄 문구 스타일 */
+        /* 세련된 반투명 유리 느낌의 하단 문구 스타일 (Glassmorphism) */
         .portfolio-caption {
-            padding: 12px 10px;
-            background: #111111;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 600;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            color: #111111;
+            font-size: 13px;
+            font-weight: 700;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border-top: 1px solid rgba(255, 212, 0, 0.3);
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         /* ===== PAGINATION ===== */
@@ -688,9 +687,7 @@
             <button class="filter-btn" data-filter="banner">현수막</button>
         </div>
 
-        <div class="portfolio-grid" id="portfolioGrid">
-            <!-- 자바스크립트에 의해 채널간판 30장 또는 메인 6개가 동적으로 출력됩니다 -->
-        </div>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
 
         <div class="pagination" id="portfolioPagination"></div>
     </section>
@@ -778,9 +775,6 @@
         const ITEMS_PER_PAGE = 15; 
         const TOTAL_ITEMS = 30;    
 
-        /* 
-           사진별 설명 문구 설정 목록 (필요에 따라 텍스트만 자유롭게 변경하세요)
-        */
         const channelTitles = {
             1: "LED 입체 채널간판 시공",
             2: "심플 전면 LED 채널간판",
@@ -821,7 +815,6 @@
 
             for(let i = start; i <= end; i++){
                 let imgSrc = `${type}${i}.jpg`;
-                // 설정된 문구가 있으면 불러오고, 없으면 기본 텍스트 표시
                 let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
 
                 html += `
@@ -859,6 +852,7 @@
             paginationContainer.innerHTML = paginationHtml;
         }
 
+        // 홈("모든 작업물") 화면: 하단 박스 및 글씨 완전히 삭제
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
                 <div class="portfolio-card">
@@ -870,7 +864,6 @@
                             <span class="action-text">시공사례 보기</span>
                         </div>
                     </div>
-                    <div class="portfolio-caption">LED 채널간판 시공</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('flex', 1)">
@@ -881,7 +874,6 @@
                             <span class="action-text">시공사례 보기</span>
                         </div>
                     </div>
-                    <div class="portfolio-caption">후렉스 간판 시공</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('skasi', 1)">
@@ -892,7 +884,6 @@
                             <span class="action-text">시공사례 보기</span>
                         </div>
                     </div>
-                    <div class="portfolio-caption">고무스카시 입체간판</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('tinting', 1)">
@@ -903,7 +894,6 @@
                             <span class="action-text">시공사례 보기</span>
                         </div>
                     </div>
-                    <div class="portfolio-caption">유리창 썬팅 시공</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('indoor', 1)">
@@ -914,7 +904,6 @@
                             <span class="action-text">시공사례 보기</span>
                         </div>
                     </div>
-                    <div class="portfolio-caption">실내 내부사인 작업</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('banner', 1)">
@@ -925,7 +914,6 @@
                             <span class="action-text">시공사례 보기</span>
                         </div>
                     </div>
-                    <div class="portfolio-caption">현수막 출력 및 시공</div>
                 </div>
             `;
             document.getElementById('portfolioPagination').innerHTML = ''; 
@@ -970,9 +958,9 @@
             });
         }
 
-        // 초기 화면 설정 (기본적으로 채널간판 30장 목록이 바로 나오도록 설정)
+        // 초기 화면 설정: 홈("모든 작업물") 카테고리를 기본으로 노출
         document.addEventListener('DOMContentLoaded', () => {
-            openGallery('channel', 1);
+            showMain();
         });
     </script>
 </body>
