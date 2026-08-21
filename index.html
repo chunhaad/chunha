@@ -443,20 +443,24 @@
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .portfolio-item:hover img { transform: scale(1.15); }
 
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            padding: 15px;
-        }
+/* 사진 중앙에 뜨던 글씨 및 오버레이 숨기기 */
+.portfolio-overlay {
+    display: none !important;
+}
+
+/* 하단 캡션: 검정색 투명도 60%, 흰색 글씨 */
+.portfolio-caption {
+    padding: 10px 12px;
+    background: rgba(0, 0, 0, 0.6); /* 검정색 60% 투명도 */
+    color: #ffffff;                 /* 흰색 글씨 */
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
         
         .portfolio-overlay h3 { font-size: 18px; margin-bottom: 4px; font-weight: 700; color: white; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); }
@@ -811,29 +815,29 @@
             30: "특수 대형 LED 채널간판"
         };
 
-        function openGallery(type, page){
-            let html = '';
-            let start = (page - 1) * ITEMS_PER_PAGE + 1;
-            let end = Math.min(page * ITEMS_PER_PAGE, TOTAL_ITEMS);
+ function openGallery(type, page){
+    let html = '';
+    let start = (page - 1) * ITEMS_PER_PAGE + 1;
+    let end = Math.min(page * ITEMS_PER_PAGE, TOTAL_ITEMS);
 
-            for(let i = start; i <= end; i++){
-                let imgSrc = `${type}${i}.jpg`;
-                let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
+    for(let i = start; i <= end; i++){
+        let imgSrc = `${type}${i}.jpg`;
+        let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
 
-                html += `
-                <div class="portfolio-card">
-                    <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
-                        <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
-                        <div class="portfolio-overlay">
-                            <h3>${caption}</h3>
-                            <p>상세보기</p>
-                            <span class="action-text">확대보기</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-caption">${caption}</div>
-                </div>
-                `;
-            }
+        html += `
+        <div class="portfolio-card">
+            <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
+                <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
+            </div>
+            <div class="portfolio-caption">${caption}</div>
+        </div>
+        `;
+    }
+    document.getElementById('portfolioGrid').innerHTML = html;
+    
+    renderPagination(type, page);
+    changeActiveFilter(type);
+}
             document.getElementById('portfolioGrid').innerHTML = html;
             
             renderPagination(type, page);
