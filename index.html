@@ -421,7 +421,7 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             border: 2px solid var(--primary);
-            background: #111111;
+            background: transparent; /* 기존 #111111에서 투명으로 변경 */
             transition: all 0.4s ease;
         }
 
@@ -440,14 +440,14 @@
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .portfolio-item:hover img { transform: scale(1.1); }
 
-        /* 사진 하단 한 줄 캡션 (검정색 20% 투명도 적용) */
+        /* 사진 하단 캡션 (흰색 바탕 위에 20% 투명 검정 적용 및 글자색 조정) */
         .portfolio-caption {
             padding: 10px 12px;
             background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(4px);
-            color: #ffffff;
+            color: #333333;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
