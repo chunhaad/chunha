@@ -376,6 +376,7 @@
         .section-title { text-align: center; margin-bottom: 60px; font-size: 42px; font-weight: 700; color: var(--text-dark); position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--primary-light)); margin: 15px auto 0; border-radius: 2px; }
         
+        /* Portfolio 전용 명조체 스타일 */
         .section-title.serif-title {
             font-family: 'Song Myung', 'Georgia', serif;
             letter-spacing: 2px;
@@ -414,6 +415,7 @@
             gap: 20px; 
         }
 
+        /* 아이템 카드 및 하단 문구 스타일 추가/수정 */
         .portfolio-card {
             display: flex;
             flex-direction: column;
@@ -421,7 +423,7 @@
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             border: 2px solid var(--primary);
-            background: #111111;
+            background: #fff;
             transition: all 0.4s ease;
         }
 
@@ -432,27 +434,46 @@
         
         .portfolio-item {
             position: relative;
-            height: 250px; 
+            height: 230px; 
             overflow: hidden;
             cursor: pointer;
         }
 
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-item:hover img { transform: scale(1.15); }
 
-        /* 사진 하단 한 줄 캡션 (검정색 20% 투명도 적용) */
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 15px;
+        }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        
+        .portfolio-overlay h3 { font-size: 18px; margin-bottom: 4px; font-weight: 700; color: white; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); }
+        .portfolio-overlay p { font-size: 13px; opacity: 0.95; font-weight: 500; margin-bottom: 8px; }
+        .portfolio-overlay .action-text { color: var(--primary); font-size: 12px; font-weight: 700; border: 1px solid var(--primary); padding: 3px 10px; border-radius: 4px; background: rgba(255, 212, 0, 0.1); }
+
+        /* 사진 밑 한줄 문구 스타일 */
         .portfolio-caption {
-            padding: 10px 12px;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(4px);
+            padding: 12px 10px;
+            background: #111111;
             color: #ffffff;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 212, 0, 0.3);
         }
 
         /* ===== PAGINATION ===== */
@@ -667,7 +688,9 @@
             <button class="filter-btn" data-filter="banner">현수막</button>
         </div>
 
-        <div class="portfolio-grid" id="portfolioGrid"></div>
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- 자바스크립트에 의해 채널간판 30장 또는 메인 6개가 동적으로 출력됩니다 -->
+        </div>
 
         <div class="pagination" id="portfolioPagination"></div>
     </section>
@@ -755,6 +778,9 @@
         const ITEMS_PER_PAGE = 15; 
         const TOTAL_ITEMS = 30;    
 
+        /* 
+           사진별 설명 문구 설정 목록 (필요에 따라 텍스트만 자유롭게 변경하세요)
+        */
         const channelTitles = {
             1: "LED 입체 채널간판 시공",
             2: "심플 전면 LED 채널간판",
@@ -795,12 +821,18 @@
 
             for(let i = start; i <= end; i++){
                 let imgSrc = `${type}${i}.jpg`;
+                // 설정된 문구가 있으면 불러오고, 없으면 기본 텍스트 표시
                 let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
 
                 html += `
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
                         <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
+                        <div class="portfolio-overlay">
+                            <h3>${caption}</h3>
+                            <p>상세보기</p>
+                            <span class="action-text">확대보기</span>
+                        </div>
                     </div>
                     <div class="portfolio-caption">${caption}</div>
                 </div>
@@ -827,38 +859,73 @@
             paginationContainer.innerHTML = paginationHtml;
         }
 
-        // 홈("모든 작업물") 화면: 글씨와 캡션 상자 완전 삭제
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('channel', 1)">
                         <img src="work1.jpg" alt="채널간판">
+                        <div class="portfolio-overlay">
+                            <h3>채널간판</h3>
+                            <p>조명간판</p>
+                            <span class="action-text">시공사례 보기</span>
+                        </div>
                     </div>
+                    <div class="portfolio-caption">LED 채널간판 시공</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('flex', 1)">
                         <img src="work2.jpg" alt="후렉스간판">
+                        <div class="portfolio-overlay">
+                            <h3>후렉스간판</h3>
+                            <p>조명·비조명간판</p>
+                            <span class="action-text">시공사례 보기</span>
+                        </div>
                     </div>
+                    <div class="portfolio-caption">후렉스 간판 시공</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('skasi', 1)">
                         <img src="work3.jpg" alt="고무스카시">
+                        <div class="portfolio-overlay">
+                            <h3>고무스카시</h3>
+                            <p>비조명 입체간판</p>
+                            <span class="action-text">시공사례 보기</span>
+                        </div>
                     </div>
+                    <div class="portfolio-caption">고무스카시 입체간판</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('tinting', 1)">
                         <img src="work4.jpg" alt="유리썬팅">
+                        <div class="portfolio-overlay">
+                            <h3>유리썬팅</h3>
+                            <p>윈도우 실사출력</p>
+                            <span class="action-text">시공사례 보기</span>
+                        </div>
                     </div>
+                    <div class="portfolio-caption">유리창 썬팅 시공</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('indoor', 1)">
                         <img src="work5.jpg" alt="실내사인">
+                        <div class="portfolio-overlay">
+                            <h3>실내사인</h3>
+                            <p>아크릴 및 내부사인</p>
+                            <span class="action-text">시공사례 보기</span>
+                        </div>
                     </div>
+                    <div class="portfolio-caption">실내 내부사인 작업</div>
                 </div>
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openGallery('banner', 1)">
                         <img src="work6.jpg" alt="현수막">
+                        <div class="portfolio-overlay">
+                            <h3>현수막</h3>
+                            <p>거리 게릴라 및 대형현수막</p>
+                            <span class="action-text">시공사례 보기</span>
+                        </div>
                     </div>
+                    <div class="portfolio-caption">현수막 출력 및 시공</div>
                 </div>
             `;
             document.getElementById('portfolioPagination').innerHTML = ''; 
@@ -903,8 +970,9 @@
             });
         }
 
+        // 초기 화면 설정 (기본적으로 채널간판 30장 목록이 바로 나오도록 설정)
         document.addEventListener('DOMContentLoaded', () => {
-            showMain();
+            openGallery('channel', 1);
         });
     </script>
 </body>
