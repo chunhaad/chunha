@@ -412,8 +412,8 @@
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
             gap: 20px; 
-            max-width: 1200px; /* 원하시는 최대 너비로 조정 (예: 800px ~ 900px) */
-            margin: 0 auto;   /* 중앙 정렬 */
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .portfolio-card {
@@ -434,8 +434,8 @@
         
         .portfolio-item {
             position: relative;
-            width: 100%; 
-            aspect-ratio: 1 / 1; /* 1:1 비율(정사각형) 설정 */
+            width: 100%;
+            aspect-ratio: 1 / 1;
             overflow: hidden;
             cursor: pointer;
         }
@@ -443,43 +443,23 @@
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .portfolio-item:hover img { transform: scale(1.15); }
 
-/* 사진 중앙에 뜨던 글씨 및 오버레이 숨기기 */
-.portfolio-overlay {
-    display: none !important;
-}
+        /* 사진 중앙 오버레이 숨기기 */
+        .portfolio-overlay {
+            display: none !important;
+        }
 
-/* 하단 캡션: 검정색 투명도 60%, 흰색 글씨 */
-.portfolio-caption {
-    padding: 10px 12px;
-    background: rgba(0, 0, 0, 0.6); /* 검정색 60% 투명도 */
-    color: #ffffff;                 /* 흰색 글씨 */
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        
-        .portfolio-overlay h3 { font-size: 18px; margin-bottom: 4px; font-weight: 700; color: white; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); }
-        .portfolio-overlay p { font-size: 13px; opacity: 0.95; font-weight: 500; margin-bottom: 8px; }
-        .portfolio-overlay .action-text { color: var(--primary); font-size: 12px; font-weight: 700; border: 1px solid var(--primary); padding: 3px 10px; border-radius: 4px; background: rgba(255, 212, 0, 0.1); }
-
-        /* 세련된 반투명 유리 느낌의 하단 문구 스타일 (Glassmorphism) */
+        /* 하단 캡션: 검정색 투명도 60%, 흰색 글씨 */
         .portfolio-caption {
             padding: 10px 12px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            color: #111111;
-            font-size: 13px;
-            font-weight: 700;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* ===== PAGINATION ===== */
@@ -598,10 +578,6 @@
         .footer-bottom { border-top: 1px solid #333; padding-top: 20px; font-size: 13px; color: #666; }
 
         /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 1200px) {
-            .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
         @media (max-width: 1024px) {
             .hero h1 { font-size: 48px; }
             .section { padding: 60px 5%; }
@@ -815,29 +791,24 @@
             30: "특수 대형 LED 채널간판"
         };
 
- function openGallery(type, page){
-    let html = '';
-    let start = (page - 1) * ITEMS_PER_PAGE + 1;
-    let end = Math.min(page * ITEMS_PER_PAGE, TOTAL_ITEMS);
+        function openGallery(type, page){
+            let html = '';
+            let start = (page - 1) * ITEMS_PER_PAGE + 1;
+            let end = Math.min(page * ITEMS_PER_PAGE, TOTAL_ITEMS);
 
-    for(let i = start; i <= end; i++){
-        let imgSrc = `${type}${i}.jpg`;
-        let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
+            for(let i = start; i <= end; i++){
+                let imgSrc = `${type}${i}.jpg`;
+                let caption = (type === 'channel' && channelTitles[i]) ? channelTitles[i] : `${type} 시공사례 ${i}`;
 
-        html += `
-        <div class="portfolio-card">
-            <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
-                <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
-            </div>
-            <div class="portfolio-caption">${caption}</div>
-        </div>
-        `;
-    }
-    document.getElementById('portfolioGrid').innerHTML = html;
-    
-    renderPagination(type, page);
-    changeActiveFilter(type);
-}
+                html += `
+                <div class="portfolio-card">
+                    <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
+                        <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
+                    </div>
+                    <div class="portfolio-caption">${caption}</div>
+                </div>
+                `;
+            }
             document.getElementById('portfolioGrid').innerHTML = html;
             
             renderPagination(type, page);
@@ -859,7 +830,7 @@
             paginationContainer.innerHTML = paginationHtml;
         }
 
-        // 홈("모든 작업물") 화면: 하단 박스 및 글씨 완전히 삭제
+        // 홈("모든 작업물") 화면: 기존 원본 유지
         function showMain(){
             document.getElementById('portfolioGrid').innerHTML = `
                 <div class="portfolio-card">
