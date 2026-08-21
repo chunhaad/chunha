@@ -417,8 +417,6 @@
         }
 
         .portfolio-card {
-            display: flex;
-            flex-direction: column;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
@@ -440,14 +438,21 @@
             cursor: pointer;
         }
 
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .portfolio-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: block;
+        }
+        
         .portfolio-item:hover img { transform: scale(1.15); }
 
-        /* 홈 화면 오버레이: 평소에는 숨김(opacity: 0), 마우스 올렸을 때만 검정 20% 투명도로 글씨 서서히 나타남 */
+        /* 메인 오버레이 (마우스 올렸을 때 전체 커버) */
         .portfolio-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -456,7 +461,8 @@
             text-align: center;
             padding: 20px;
             opacity: 0;
-            transition: opacity 0.3s ease, background 0.3s ease;
+            transition: opacity 0.3s ease;
+            z-index: 2;
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -487,10 +493,14 @@
             border-radius: 20px;
         }
 
-        /* 상세 갤러리 페이지용 하단 캡션 (검정 60% 투명도) */
+        /* 상세 갤러리 하단 반투명 검정 캡션 (사진 위에 겹치도록 설정) */
         .portfolio-caption {
-            padding: 10px 12px;
-            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.55); /* 검정색에 55% 투명도 적용 */
             color: #ffffff;
             font-size: 14px;
             font-weight: 600;
@@ -498,7 +508,8 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(2px); /* 약간의 블러 효과로 글씨 시인성 확보 */
+            z-index: 1;
         }
 
         /* ===== PAGINATION ===== */
@@ -843,8 +854,8 @@
                 <div class="portfolio-card">
                     <div class="portfolio-item" onclick="openLightbox('${imgSrc}', '${caption}')">
                         <img src="${imgSrc}" alt="${caption}" onerror="this.closest('.portfolio-card').style.display='none';">
+                        <div class="portfolio-caption">${caption}</div>
                     </div>
-                    <div class="portfolio-caption">${caption}</div>
                 </div>
                 `;
             }
